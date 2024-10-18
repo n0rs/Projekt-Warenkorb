@@ -15,7 +15,7 @@ todo
 ### Klasse "Artikel"
 Bereich: Bücher und Medien
 **Attribute**
-- **String**: Artikelnummer
+- **int**: Artikelnummer
 - **String**: Bezeichnung
 - **int**/**double**: Preis
 - **Ggf. MwSt**
