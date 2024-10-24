@@ -1,3 +1,4 @@
+package Warenkorb;
 
 public class Kunde {
 	// Attribute
