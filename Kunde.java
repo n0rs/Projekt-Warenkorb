@@ -14,4 +14,46 @@ public class Kunde {
 		this.lieferAdresse = lieferAdresse;
 		this.rechnungsAdresse = rechnungsAdresse;
 	}
+
+	public int getKundenNummer() {
+		return kundenNummer;
+	}
+
+	public void setKundenNummer(int kundenNummer) {
+		this.kundenNummer = kundenNummer;
+	}
+
+	public String getLieferAdresse() {
+		return lieferAdresse;
+	}
+
+	public void setLieferAdresse(String lieferAdresse) {
+		this.lieferAdresse = lieferAdresse;
+	}
+
+	public String getRechnungsAdresse() {
+		return rechnungsAdresse;
+	}
+
+	public void setRechnungsAdresse(String rechnungsAdresse) {
+		this.rechnungsAdresse = rechnungsAdresse;
+	}
+
+	public String getVorName() {
+		return vorName;
+	}
+
+	public void setVorName(String vorName) {
+		this.vorName = vorName;
+	}
+
+	public String getNachName() {
+		return nachName;
+	}
+
+	public void setNachName(String nachName) {
+		this.nachName = nachName;
+	}
+
+	
 }
