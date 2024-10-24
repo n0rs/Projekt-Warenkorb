@@ -46,5 +46,7 @@ public class Kunde {
 		this.nachName = nachName;
 	}
 
-	
+	public static void main(String[] args) {
+		
+	}
 }
