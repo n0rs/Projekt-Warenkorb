@@ -2,7 +2,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Artikel {
-    static ArrayList<Artikel> waren = new ArrayList<>(); // ArrayList die alle Artikel speichert
+    // ArrayList die alle Artikel speichert
+    static ArrayList<Artikel> waren = new ArrayList<>(); 
 
     // Attribute der Artikel
     private int artikelNummer;
@@ -60,7 +61,6 @@ public class Artikel {
         Artikel a10 = new Artikel(10, 2599.99, "The One Ring - Original Filmrequisite");
         // Fügt alle Artikel zur "waren" ArrayList hinz
         Collections.addAll(waren, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10);
-        
         printWaren();
     }
 }
