@@ -1,10 +1,17 @@
 
 public class Kunde {
-
 	// Attribute
-	private int KundenNummer;
-	private String LieferAdresse;
-	private String Rechnungsadresse;
-	private String Name; // evtl. String für Vorname und String für Nachname, die dann zsmgefügt werden
+	private int kundenNummer;
+	private String lieferAdresse;
+	private String rechnungsAdresse;
+	private String vorName; 
+	private String nachName;
 
+	public Kunde (int kundenNummer, String vorName, String nachName, String lieferAdresse, String rechnungsAdresse) {
+		this.kundenNummer = kundenNummer;
+		this.vorName = vorName;
+		this.nachName = nachName;
+		this.lieferAdresse = lieferAdresse;
+		this.rechnungsAdresse = rechnungsAdresse;
+	}
 }

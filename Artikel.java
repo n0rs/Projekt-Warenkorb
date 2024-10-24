@@ -2,9 +2,9 @@ import java.util.ArrayList;
 
 public class Artikel {
     static ArrayList<Artikel> waren = new ArrayList<>();
-    int artikelNummer;
-    double artikelPreis;
-    String artikelBezeichnung;
+    private int artikelNummer;
+    private double artikelPreis;
+    private String artikelBezeichnung;
 
     public Artikel (int artikelNummer, double artikelPreis, String artikelBezeichnung){
         this.artikelNummer = artikelNummer;
