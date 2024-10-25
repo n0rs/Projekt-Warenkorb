@@ -1,5 +1,4 @@
-/AD01 Projekt Aufgabenstellung.pdf
-/AD01 Projekt Auswahl Themen.pdf
-/Warenkorb.class
-/Kunde.class
-/Artikel.class
+*.class
+*.pdf
+.project
+.classpath
