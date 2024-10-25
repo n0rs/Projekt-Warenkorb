@@ -1,4 +1,4 @@
-package Warenkorb;
+package warenkorb;
 
 public class Warenkorb {
     int maxArtikel;

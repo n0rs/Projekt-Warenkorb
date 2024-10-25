@@ -1,4 +1,4 @@
-package Warenkorb;
+package warenkorb;
 
 import java.util.ArrayList;
 import java.util.Collections;
