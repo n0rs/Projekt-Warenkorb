@@ -2,26 +2,34 @@ package warenkorb;
 
 public class Kunde {
 	// Attribute
+	private Warenkorb warenkorb;
 	private int kundenNummer;
 	private String lieferAdresse;
 	private String rechnungsAdresse;
 	private String vorName; 
 	private String nachName;
+	private static int counter = 1;
 
-	public Kunde (int kundenNummer, String vorName, String nachName, String lieferAdresse, String rechnungsAdresse) {
-		this.kundenNummer = kundenNummer;
+	public Kunde (String vorName, String nachName, String lieferAdresse, String rechnungsAdresse) {
+		kundenNummer = counter++;
 		this.vorName = vorName;
 		this.nachName = nachName;
 		this.lieferAdresse = lieferAdresse;
 		this.rechnungsAdresse = rechnungsAdresse;
+		this.warenkorb = new Warenkorb();
 	}
 
+	public void addToWarenkorb (Artikel artikel) {
+		warenkorb.addWaren(artikel);
+	}
+
+	// Getter und Setter für alle Attribute außer counter
 	public int getKundenNummer() {
-		return kundenNummer;
-	}
-	public void setKundenNummer(int kundenNummer) {
-		this.kundenNummer = kundenNummer;
-	}
+        return kundenNummer;
+    }
+    public void setKundenNummer(int kundenNummer) {
+        this.kundenNummer = kundenNummer;
+    }
 	public String getLieferAdresse() {
 		return lieferAdresse;
 	}
@@ -46,8 +54,10 @@ public class Kunde {
 	public void setNachName(String nachName) {
 		this.nachName = nachName;
 	}
-
-	public static void main(String[] args) {
-		
-	}
+    public Warenkorb getWarenkorb() {
+        return warenkorb;
+    }
+    public void setWarenkorb(Warenkorb warenkorb) {
+        this.warenkorb = warenkorb;
+    }  
 }
