@@ -5,7 +5,7 @@ import java.util.Collections;
 
 
 public class Artikel {
-    // ArrayList die alle Artikel speichert
+    // ArrayList die alle Artikel als "Warensortiment" speichert
     static ArrayList<Artikel> waren = new ArrayList<>(); 
 
     // Attribute der Artikel
@@ -37,7 +37,8 @@ public class Artikel {
     }
 
     public static void printWaren() {
-        // for-each loop, der 
+        // for-each loop, der "Warensortiment" ausgibt
+        // sollten wir noch schöner gestalten :)
         for (Artikel artikel: waren) {
             System.out.print(artikel.artikelNummer+ " | ");
             System.out.print(artikel.artikelBezeichnung+ " | ");
@@ -46,31 +47,29 @@ public class Artikel {
     }
 
     // dadurch können wir den Inhalt des Artikels als String printen und nicht als Objekt (Warenkorb@Zahl)
+    // Muss auch angepasst werden
     @Override
     public String toString() {
         return "Artikelnummer: " + artikelNummer + "; Name: " + artikelBezeichnung + "; Preis: " + artikelPreis + " Euro";
     }
 
+    // Getter und Setter für alle Attribute der Artikel
+    // Am Ende ausmisten
     public int getArtikelNummer() {
         return artikelNummer;
     }
-
     public void setArtikelNummer(int artikelNummer) {
         this.artikelNummer = artikelNummer;
     }
-
     public double getArtikelPreis() {
         return artikelPreis;
     }
-
     public void setArtikelPreis(double artikelPreis) {
         this.artikelPreis = artikelPreis;
     }
-
     public String getArtikelBezeichnung() {
         return artikelBezeichnung;
     }
-
     public void setArtikelBezeichnung(String artikelBezeichnung) {
         this.artikelBezeichnung = artikelBezeichnung;
     }
