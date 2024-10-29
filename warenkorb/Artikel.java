@@ -14,7 +14,7 @@ public class Artikel {
     private String artikelBezeichnung;
 
     // Artikel Konstruktor 
-    public Artikel (int artikelNummer, double artikelPreis, String artikelBezeichnung){
+    public Artikel (int artikelNummer, double artikelPreis, String artikelBezeichnung) {
         this.artikelNummer = artikelNummer;
         this.artikelPreis = artikelPreis;
         this.artikelBezeichnung = artikelBezeichnung;
@@ -32,7 +32,7 @@ public class Artikel {
         Artikel a8 = new Artikel(8, 7.99, "Frodo Stressball");
         Artikel a9 = new Artikel(9, 5.99, "Der Herr der Ringe - Sammelkartenpack");
         Artikel a10 = new Artikel(10, 2599.99, "The One Ring - Original Filmrequisite");
-        // Fügt alle Artikel zur "waren" ArrayList hinz
+        // Fügt alle Artikel zur "waren" ArrayList hinzu
         Collections.addAll(waren, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10);
     }
 
@@ -45,28 +45,33 @@ public class Artikel {
         }
     }
 
-    // Getter und Setter für alle Attribute
+    // dadurch können wir den Inhalt des Artikels als String printen und nicht als Objekt (Warenkorb@Zahl)
+    @Override
+    public String toString() {
+        return "Artikelnummer: " + artikelNummer + "; Name: " + artikelBezeichnung + "; Preis: " + artikelPreis + " Euro";
+    }
+
     public int getArtikelNummer() {
         return artikelNummer;
     }
+
     public void setArtikelNummer(int artikelNummer) {
         this.artikelNummer = artikelNummer;
     }
-    public String getArtikelBezeichnung() {
-        return artikelBezeichnung;
-    }
-    public void setArtikelBezeichnung(String artikelBezeichnung) {
-        this.artikelBezeichnung = artikelBezeichnung;
-    }
+
     public double getArtikelPreis() {
         return artikelPreis;
     }
+
     public void setArtikelPreis(double artikelPreis) {
         this.artikelPreis = artikelPreis;
     }
-    
-    // main Methode
-    public static void main(String[] args) {
 
+    public String getArtikelBezeichnung() {
+        return artikelBezeichnung;
+    }
+
+    public void setArtikelBezeichnung(String artikelBezeichnung) {
+        this.artikelBezeichnung = artikelBezeichnung;
     }
 }
