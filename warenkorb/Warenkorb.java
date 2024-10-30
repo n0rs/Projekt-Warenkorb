@@ -16,24 +16,32 @@ public class Warenkorb {
 		warenkorb.add(artikel);
 	}
 
-	//(Liv) Rechnet den Preis der Artikel im Warenkorb mit einer for-schleife zusammen
-	// Ich musste hier einmal *100 & /100 rechnen, damit bei double keine Rundungsfehler rauskommen
+	// (Liv) Rechnet den Preis der Artikel im Warenkorb mit einer for-schleife
+	// zusammen
+	// Ich musste hier Math.round benutzen & einmal *100 & /100 rechnen, damit keine
+	// Rundungsfehler rauskommen
 	public double getTotal() {
 		double total = 0;
 		for (int i = 0; i < warenkorb.size(); i++) {
-			total += (warenkorb.get(i).getArtikelPreis() * 100);
+			total += (warenkorb.get(i).getArtikelPreis());
 		}
-		return total / 100;
+
+		return Math.round(100.0 * total) / 100.0;
 	}
 
-	//(Liv) getTotal() zu toString() hinzugefügt
+	// (Liv) entfernt alle Elemente aus dem Warenkorb ArrayList
+	public void clearWaren() {
+		warenkorb.clear();
+	}
+
+	// (Liv) getTotal() zu toString() hinzugefügt
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
 		for (Artikel artikel : warenkorb) {
 			sb.append(artikel.toString()).append("\n");
 		}
-		return sb.toString() + "Total: " + getTotal() + "€" ;
+		return sb.toString() + "Total: " + getTotal() + "€";
 	}
 
 	// Getter/Setter
