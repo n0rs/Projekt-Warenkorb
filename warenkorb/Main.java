@@ -11,9 +11,13 @@ public class Main {
         System.out.println(k2.getKundenNummer());
         k1.addToWarenkorb(Artikel.waren.get(0));
         k2.addToWarenkorb(Artikel.waren.get(9));
-        System.out.println(k1.getLieferAdresse());
-        System.out.println(k2.getLieferAdresse());
+        //System.out.println(k1.getLieferAdresse());
+       // System.out.println(k2.getLieferAdresse());
+        k1.addToWarenkorb(Artikel.waren.get(7));
+        k1.addToWarenkorb(Artikel.waren.get(8));
         System.out.println(k1.getWarenkorb());
-        System.out.println(k2.getWarenkorb());
+        //System.out.println(k2.getWarenkorb());
+        
+        
     }
 }
