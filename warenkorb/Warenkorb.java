@@ -33,7 +33,7 @@ public class Warenkorb {
 		for (Artikel artikel : warenkorb) {
 			sb.append(artikel.toString()).append("\n");
 		}
-		return sb.toString() + "Total: " + getTotal() + "€";
+		return sb.toString() + "Total: " + getTotal() + "€" ;
 	}
 
 	// Getter/Setter
