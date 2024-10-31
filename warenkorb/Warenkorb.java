@@ -30,21 +30,31 @@ public class Warenkorb {
 		return Math.round(100.0 * total) / 100.0;
 	}
 
+	public void changeAnzahlW(Artikel artikel, int Anzahl) {
+
+		if (Anzahl > Collections.frequency(warenkorb, artikel)) {
+			int diff = Anzahl - Collections.frequency(warenkorb, artikel);
+			while (diff > 0) {
+				warenkorb.add(artikel);
+				diff--;
+
+			}
+		} else if (Anzahl < Collections.frequency(warenkorb, artikel))	{
+			int diff = Collections.frequency(warenkorb, artikel) - Anzahl;
+			while (diff>0)	{
+				warenkorb.remove(artikel);
+				diff--;
+			}
+		} else {
+			System.out.println("Hinweis: '" + artikel.getArtikelBezeichnung() + "' ist bereits " + Anzahl + "-mal vorhanden.");
+		}
+	}
+
 	// (Liv) entfernt alle Elemente aus dem Warenkorb ArrayList
 	public void clearWaren() {
 		warenkorb.clear();
 	}
 
-//	public void anzahlCounter() {
-//
-//		for (int j = 0; j < Artikel.waren.size(); j++) {
-//			if (Collections.frequency(warenkorb, Artikel.waren.get(j)) > 0) {
-//				System.out.println("\nAnzahl: "
-//						+ Collections.frequency(warenkorb, Artikel.waren.get(j)));
-//			}
-//		}
-//	}
-//	
 	// (Liv) getTotal() zu toString() hinzugefügt
 	@Override
 	public String toString() {
@@ -53,7 +63,7 @@ public class Warenkorb {
 			sb.append(artikel.toString()).append("\n");
 		}
 		return sb.toString() + "Total: " + getTotal() + "€";
-		
+
 	}
 
 	// Getter/Setter

@@ -6,7 +6,7 @@ public class Main {
 		Kunde k1 = new Kunde("Max", "Mustermann", "Musterstraße 3", "Musterstraße3");
 		Kunde k2 = new Kunde("Maxine", "Musterfrau", "Musterweg 12", "Musterweg 12");
 		Artikel.initiateWaren();
-		Artikel.printWaren();
+//		Artikel.printWaren();
 		// System.out.println(k1.getKundenNummer());
 		// System.out.println(k2.getKundenNummer());
 		k1.addToWarenkorb(Artikel.waren.get(0));
@@ -18,9 +18,17 @@ public class Main {
 		k1.addToWarenkorb(Artikel.waren.get(8));
 		k2.addToWarenkorb(Artikel.waren.get(7));
 		k2.addToWarenkorb(Artikel.waren.get(7));
-		System.out.println(k1.getWarenkorb());
-		System.out.println("\nKunde 2:\n" + k2.getWarenkorb());
-//		k2.showAnzahl();
+//		System.out.println(k1.getWarenkorb());
+		
+		System.out.println("\nKunde 2\n" + k2.getWarenkorb());
+		
+		k2.changeAnzahl(Artikel.waren.get(7), 4);
+		
+		System.out.println("\nKunde 2 nach Methode:\n" + k2.getWarenkorb());
 
+		
+		k2.changeAnzahl(Artikel.waren.get(7), 4);
+		
+	
 	}
 }

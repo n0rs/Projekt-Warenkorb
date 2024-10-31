@@ -29,16 +29,20 @@ public class Kunde {
 	public void addToWarenkorb(Artikel artikel) {
 		warenkorb.addWaren(artikel);
 	}
+	
+	
+	public void changeAnzahl(Artikel artikel, int Anzahl)	{
+		warenkorb.changeAnzahlW(artikel, Anzahl);
+	}
+	
+	
+	
 
 	// (Liv) entfernt alle Artikel aus dem Warenkorb des Kunden
 	// Nutzt die Warenkorb.clearWaren Methode
 	public void clearWarenkorb() {
 		warenkorb.clearWaren();
 	}
-	
-//	public void showAnzahl()	{
-//		warenkorb.anzahlCounter();
-//	}
 
 	// Getter und Setter für alle Attribute außer counter
 	// Wir sollten am Ende schauen, welche der Getter/Setter nicht verwendet werden
