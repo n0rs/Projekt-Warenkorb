@@ -1,6 +1,7 @@
 package warenkorb;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Warenkorb {
 	// initiiert Warenkorb der Artikel speichern kann
@@ -34,6 +35,16 @@ public class Warenkorb {
 		warenkorb.clear();
 	}
 
+//	public void anzahlCounter() {
+//
+//		for (int j = 0; j < Artikel.waren.size(); j++) {
+//			if (Collections.frequency(warenkorb, Artikel.waren.get(j)) > 0) {
+//				System.out.println("\nAnzahl: "
+//						+ Collections.frequency(warenkorb, Artikel.waren.get(j)));
+//			}
+//		}
+//	}
+//	
 	// (Liv) getTotal() zu toString() hinzugefügt
 	@Override
 	public String toString() {
@@ -42,6 +53,7 @@ public class Warenkorb {
 			sb.append(artikel.toString()).append("\n");
 		}
 		return sb.toString() + "Total: " + getTotal() + "€";
+		
 	}
 
 	// Getter/Setter

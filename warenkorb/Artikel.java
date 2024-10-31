@@ -50,7 +50,7 @@ public class Artikel {
     // Muss auch angepasst werden
     @Override
     public String toString() {
-        return "Artikelnummer: " + artikelNummer + "; Name: " + artikelBezeichnung + "; Preis: " + artikelPreis + " Euro";
+        return "Artikelnummer: " + artikelNummer + "; Name: " + artikelBezeichnung + "; Preis: " + artikelPreis + " €";
     }
 
     // Getter und Setter für alle Attribute der Artikel

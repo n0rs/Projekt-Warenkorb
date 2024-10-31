@@ -35,6 +35,10 @@ public class Kunde {
 	public void clearWarenkorb() {
 		warenkorb.clearWaren();
 	}
+	
+//	public void showAnzahl()	{
+//		warenkorb.anzahlCounter();
+//	}
 
 	// Getter und Setter für alle Attribute außer counter
 	// Wir sollten am Ende schauen, welche der Getter/Setter nicht verwendet werden
