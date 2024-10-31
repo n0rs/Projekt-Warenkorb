@@ -16,6 +16,11 @@ public class Warenkorb {
 		warenkorb.add(artikel);
 	}
 
+	public void changeWaren(Artikel artikel) {
+		// Eventuell reicht es die Anzahl zu ändern, bei 0 wird item gelöscht
+		// TODO
+	}
+
 	// (Liv) Rechnet den Preis der Artikel im Warenkorb mit einer for-schleife
 	// zusammen
 	// Ich musste hier Math.round benutzen & einmal *100 & /100 rechnen, damit keine
