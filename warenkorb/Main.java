@@ -18,7 +18,7 @@ public class Main {
 		k1.addToWarenkorb(Artikel.waren.get(8));
 		k2.addToWarenkorb(Artikel.waren.get(7));
 		k2.addToWarenkorb(Artikel.waren.get(7));
-		//System.out.println(k1.getWarenkorb());
+		System.out.println(k1.getWarenkorb());
 		System.out.println("\nKunde 2:\n" + k2.getWarenkorb());
 //		k2.showAnzahl();
 
