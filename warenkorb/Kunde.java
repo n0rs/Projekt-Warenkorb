@@ -29,6 +29,14 @@ public class Kunde {
 	public void addToWarenkorb(Artikel artikel) {
 		warenkorb.addWaren(artikel);
 	}
+	
+	
+	public void changeAnzahl(Artikel artikel, int Anzahl)	{
+		warenkorb.changeAnzahlW(artikel, Anzahl);
+	}
+	
+	
+	
 
 	// (Liv) entfernt alle Artikel aus dem Warenkorb des Kunden
 	// Nutzt die Warenkorb.clearWaren Methode

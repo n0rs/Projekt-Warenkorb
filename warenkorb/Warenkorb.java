@@ -1,6 +1,7 @@
 package warenkorb;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class Warenkorb {
 	// initiiert Warenkorb der Artikel speichern kann
@@ -34,7 +35,26 @@ public class Warenkorb {
 		return Math.round(100.0 * total) / 100.0;
 	}
 
-	// (Liv) entfernt alle Elemente aus dem Warenkorb ArrayList
+	public void changeAnzahlW(Artikel artikel, int Anzahl) {
+
+		if (Anzahl > Collections.frequency(warenkorb, artikel)) {
+			int diff = Anzahl - Collections.frequency(warenkorb, artikel);
+			while (diff > 0) {
+				warenkorb.add(artikel);
+				diff--;
+			}
+		} else if (Anzahl < Collections.frequency(warenkorb, artikel))	{
+			int diff = Collections.frequency(warenkorb, artikel) - Anzahl;
+			while (diff>0)	{
+				warenkorb.remove(artikel);
+				diff--;
+			}
+		} else {
+			System.out.println("Hinweis: '" + artikel.getArtikelBezeichnung() + "' ist bereits " + Anzahl + "-mal vorhanden.");
+		}
+	}
+
+	// (Liv) entfernt alle Elemente aus dem Warenkorb ArrayList testtest 
 	public void clearWaren() {
 		warenkorb.clear();
 	}
@@ -47,6 +67,7 @@ public class Warenkorb {
 			sb.append(artikel.toString()).append("\n");
 		}
 		return sb.toString() + "Total: " + getTotal() + "€";
+
 	}
 
 	// Getter/Setter
