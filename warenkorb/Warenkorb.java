@@ -37,7 +37,6 @@ public class Warenkorb {
 			while (diff > 0) {
 				warenkorb.add(artikel);
 				diff--;
-
 			}
 		} else if (Anzahl < Collections.frequency(warenkorb, artikel))	{
 			int diff = Collections.frequency(warenkorb, artikel) - Anzahl;
@@ -50,7 +49,7 @@ public class Warenkorb {
 		}
 	}
 
-	// (Liv) entfernt alle Elemente aus dem Warenkorb ArrayList
+	// (Liv) entfernt alle Elemente aus dem Warenkorb ArrayList testtest 
 	public void clearWaren() {
 		warenkorb.clear();
 	}
