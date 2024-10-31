@@ -38,18 +38,30 @@ public class Warenkorb {
 				warenkorb.add(artikel);
 				diff--;
 			}
-		} else if (Anzahl < Collections.frequency(warenkorb, artikel))	{
+		} else if (Anzahl < Collections.frequency(warenkorb, artikel)) {
 			int diff = Collections.frequency(warenkorb, artikel) - Anzahl;
-			while (diff>0)	{
+			while (diff > 0) {
 				warenkorb.remove(artikel);
 				diff--;
 			}
-		} else {
-			System.out.println("Hinweis: '" + artikel.getArtikelBezeichnung() + "' ist bereits " + Anzahl + "-mal vorhanden.");
+		} else if (Anzahl == Collections.frequency(warenkorb, artikel)) {
+			System.out.println(
+					"Hinweis: '" + artikel.getArtikelBezeichnung() + "' ist bereits " + Anzahl + "-mal vorhanden.");
+		} else if (Anzahl == 0) {
+			removeallArtikelx(artikel);
 		}
 	}
 
-	// (Liv) entfernt alle Elemente aus dem Warenkorb ArrayList testtest 
+	public void removeallArtikelx(Artikel artikel) {
+		int artikelx = Collections.frequency(warenkorb, artikel);
+
+		while (artikelx > 0) {
+			warenkorb.remove(artikel);
+			artikelx--;
+		}
+	}
+
+	// (Liv) entfernt alle Elemente aus dem Warenkorb ArrayList testtest
 	public void clearWaren() {
 		warenkorb.clear();
 	}

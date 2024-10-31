@@ -27,8 +27,8 @@ public class Main {
 		System.out.println("\nKunde 2 nach Methode:\n" + k2.getWarenkorb());
 
 		
-		k2.changeAnzahl(Artikel.waren.get(7), 4);
+		k2.changeAnzahl(Artikel.waren.get(7), 0);
 		
-	
+		System.out.println("\nKunde 2 nach Methode:\n" + k2.getWarenkorb());
 	}
 }
