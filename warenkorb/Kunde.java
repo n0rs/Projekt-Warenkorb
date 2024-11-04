@@ -20,7 +20,7 @@ public class Kunde {
 		this.lieferAdresse = lieferAdresse;
 		this.rechnungsAdresse = rechnungsAdresse;
 		this.warenkorb = new Warenkorb();
-		//kundenNummer und warenkorb als sich ändernde Objekte
+		// kundenNummer und warenkorb als sich ändernde Objekte
 		// eventuell müssen wir die Lieferadresse auch so behandeln wenn wir die ändern
 		// wollen
 	}
@@ -29,15 +29,21 @@ public class Kunde {
 	public void addToWarenkorb(Artikel artikel) {
 		warenkorb.addWaren(artikel);
 	}
-	
-	//Aufruf Warenkorb.changeAnzahlW Methode
-	public void changeAnzahl(Artikel artikel, int Anzahl)	{
+
+	// Aufruf Warenkorb.changeAnzahlW Methode
+	public void changeAnzahl(Artikel artikel, int Anzahl) {
 		warenkorb.changeAnzahlW(artikel, Anzahl);
 	}
-	
+
 	// Aufruf Warenkorb.clearWaren Methode
 	public void clearWarenkorb() {
 		warenkorb.clearWaren();
+	}
+
+	@Override
+	public String toString() {
+		return "Name: " + vorName + " " + nachName + "\nLieferadresse: " + lieferAdresse + "\nRechnungsadresse: "
+				+ rechnungsAdresse + "\nKundennummer: " + kundenNummer;
 	}
 
 	// Getter und Setter für alle Attribute außer counter
