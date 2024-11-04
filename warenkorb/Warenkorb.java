@@ -32,7 +32,6 @@ public class Warenkorb {
     }
 
     public void changeAnzahlW(Artikel artikel, int Anzahl) {
-
         if (Anzahl > Collections.frequency(warenkorb, artikel)) {
             int diff = Anzahl - Collections.frequency(warenkorb, artikel);
             while (diff > 0) {
@@ -55,7 +54,6 @@ public class Warenkorb {
 
     public void removeallArtikelx(Artikel artikel) {
         int artikelx = Collections.frequency(warenkorb, artikel);
-
         while (artikelx > 0) {
             warenkorb.remove(artikel);
             artikelx--;
