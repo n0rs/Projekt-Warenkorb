@@ -12,9 +12,7 @@ public class Kunde {
 	// zu erhöhen
 	private static int counter = 1;
 
-	// Kunden-Konstruktor mit kundenNummer und warenkorb als sich ändernde Objekte
-	// eventuell müssen wir die Lieferadresse auch so behandeln wenn wir die ändern
-	// wollen
+	// Konstruktor
 	public Kunde(String vorName, String nachName, String lieferAdresse, String rechnungsAdresse) {
 		kundenNummer = counter++;
 		this.vorName = vorName;
@@ -22,24 +20,22 @@ public class Kunde {
 		this.lieferAdresse = lieferAdresse;
 		this.rechnungsAdresse = rechnungsAdresse;
 		this.warenkorb = new Warenkorb();
+		//kundenNummer und warenkorb als sich ändernde Objekte
+		// eventuell müssen wir die Lieferadresse auch so behandeln wenn wir die ändern
+		// wollen
 	}
 
-	// fügt Waren in den für jeden Kunden einzigartigen Warenkorb
-	// Nutzt die Warenkorb.addWaren Methode
+	// Aufruf Warenkorb.addWaren Methode
 	public void addToWarenkorb(Artikel artikel) {
 		warenkorb.addWaren(artikel);
 	}
 	
-	
+	//Aufruf Warenkorb.changeAnzahlW Methode
 	public void changeAnzahl(Artikel artikel, int Anzahl)	{
 		warenkorb.changeAnzahlW(artikel, Anzahl);
 	}
 	
-	
-	
-
-	// (Liv) entfernt alle Artikel aus dem Warenkorb des Kunden
-	// Nutzt die Warenkorb.clearWaren Methode
+	// Aufruf Warenkorb.clearWaren Methode
 	public void clearWarenkorb() {
 		warenkorb.clearWaren();
 	}
