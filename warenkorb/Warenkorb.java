@@ -44,7 +44,7 @@ public class Warenkorb {
 	// verändert die Anzahl eines Artikels im Warenkorb
 	public void changeAnzahlW(Artikel artikel, int Anzahl) {
 
-		if (warenkorb.size() + Anzahl <= 100 && Anzahl > 0) {
+		if (warenkorb.size() + Anzahl <= 100 && Anzahl >= 0) {
 
 			if (Anzahl > Collections.frequency(warenkorb, artikel)) {
 				int diff = Anzahl - Collections.frequency(warenkorb, artikel);
