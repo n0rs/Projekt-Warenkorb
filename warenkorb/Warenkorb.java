@@ -14,12 +14,18 @@ public class Warenkorb {
 	}
 
 	// fügt Artikel zum Warenkorb hinzu
-	public void addWaren(Artikel artikel) {
-		if (warenkorb.size() + 1 <= 100) {
-			warenkorb.add(artikel);
+	public void addWaren(Artikel artikel, int addAnzahl) {
+
+		if (warenkorb.size() + addAnzahl <= 100 && addAnzahl > 0) {
+			while (addAnzahl > 0) {
+				warenkorb.add(artikel);
+				addAnzahl--;
+			}
+		} else if (addAnzahl <= 0) {
+			System.out.println("Ungültige Eingabe. Anzahl muss einen Wert über 0 haben.");
 		} else {
 			System.out.println(
-					"Warenkorb fasst max. 100 Artikel. Ihr aktueller Warenkorb: " + warenkorb.size() + " Elemente");
+					"Warenkorb fasst max. 100 Artikel. Ihr aktueller Warenkorb: " + warenkorb.size() + " Elemente.");
 		}
 	}
 
@@ -38,7 +44,7 @@ public class Warenkorb {
 	// verändert die Anzahl eines Artikels im Warenkorb
 	public void changeAnzahlW(Artikel artikel, int Anzahl) {
 
-		if (warenkorb.size() + Anzahl <= 100) {
+		if (warenkorb.size() + Anzahl <= 100 && Anzahl > 0) {
 
 			if (Anzahl > Collections.frequency(warenkorb, artikel)) {
 				int diff = Anzahl - Collections.frequency(warenkorb, artikel);
@@ -58,9 +64,12 @@ public class Warenkorb {
 			} else if (Anzahl == 0) {
 				removeallArtikelx(artikel);
 			}
+
+		} else if (Anzahl < 0) {
+			System.out.println("Ungültige Eingabe. Anzahl darf keinen negativen Wert haben.");
 		} else {
 			System.out.println(
-					"Warenkorb fasst max. 100 Artikel. Ihr aktueller Warenkorb: " + warenkorb.size() + " Elemente");
+					"Warenkorb fasst max. 100 Artikel. Ihr aktueller Warenkorb: " + warenkorb.size() + " Elemente.");
 		}
 
 	}
