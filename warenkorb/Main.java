@@ -20,38 +20,43 @@ public class Main {
 		k1.addToWarenkorb(Artikel.waren.get(8));
 		k2.addToWarenkorb(Artikel.waren.get(7));
 		k2.addToWarenkorb(Artikel.waren.get(7));
-//		System.out.println(k1.getWarenkorb());
-
+		k2.changeAnzahl(Artikel.waren.get(7), 95);
+		k2.addToWarenkorb(Artikel.waren.get(8));
+		k2.addToWarenkorb(Artikel.waren.get(8));
+		k2.addToWarenkorb(Artikel.waren.get(8));
+		k2.addToWarenkorb(Artikel.waren.get(8));
+		k2.addToWarenkorb(Artikel.waren.get(8));
+		
 		// Kundenkonto erstellen
-		System.out.println("Bitte erstellen Sie Ihr Kundenkonto.");
-		
-		System.out.println("Nachname:");
-		Scanner Knachname = new Scanner(System.in);
-		String tempnachName = Knachname.nextLine();
-		System.out.println("Vorname:");
-		Scanner KvorName = new Scanner(System.in);
-		String tempvorName = KvorName.nextLine();
-		System.out.println("Adresse:");
-		Scanner KAdresse = new Scanner(System.in);
-		String tempAdress = KAdresse.nextLine();
-		
-		Kunde kint = new Kunde(tempvorName, tempnachName, tempAdress, tempAdress);
-		
-		System.out.println("Vielen Dank. Bitte überprüfen Sie Ihre Daten:\n");
-		System.out.println(kint.toString() + "\n" + "\nBestätigen: X \nNeu: N");
-		Scanner confirm = new Scanner(System.in);
-		if (confirm.nextLine() == "X") {
-			// continue
-		} else if (confirm.nextLine() == "N") {
-			// jump to beginning
-		} else {
-			System.out.println("Ungültige Eingabe. Bitte versuchen Sie es erneut.");
-			// jump to Bestätigen
-		}
-		
-		Knachname.close();
-		KvorName.close();
-		KAdresse.close();
-		confirm.close();
+//		System.out.println("Bitte erstellen Sie Ihr Kundenkonto.");
+//		
+//		System.out.println("Nachname:");
+//		Scanner Knachname = new Scanner(System.in);
+//		String tempnachName = Knachname.nextLine();
+//		System.out.println("Vorname:");
+//		Scanner KvorName = new Scanner(System.in);
+//		String tempvorName = KvorName.nextLine();
+//		System.out.println("Adresse:");
+//		Scanner KAdresse = new Scanner(System.in);
+//		String tempAdress = KAdresse.nextLine();
+//		
+//		Kunde kint = new Kunde(tempvorName, tempnachName, tempAdress, tempAdress);
+//		
+//		System.out.println("Vielen Dank. Bitte überprüfen Sie Ihre Daten:\n");
+//		System.out.println(kint.toString() + "\n" + "\nBestätigen: X \nNeu: N");
+//		Scanner confirm = new Scanner(System.in);
+//		if (confirm.nextLine() == "X") {
+//			// continue
+//		} else if (confirm.nextLine() == "N") {
+//			// jump to beginning
+//		} else {
+//			System.out.println("Ungültige Eingabe. Bitte versuchen Sie es erneut.");
+//			// jump to Bestätigen
+//		}
+//		
+//		Knachname.close();
+//		KvorName.close();
+//		KAdresse.close();
+//		confirm.close();
 	}
 }
