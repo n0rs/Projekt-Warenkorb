@@ -7,20 +7,20 @@ public class Artikel {
 	// ArrayList die alle Artikel als "Warensortiment" speichert
 	static ArrayList<Artikel> waren = new ArrayList<>();
 
-	// Attribute der Artikel
+	// Attribute
 	private int artikelNummer;
 	private double artikelPreis;
 	private String artikelBezeichnung;
 
-	// Artikel Konstruktor
+	// Konstruktor
 	public Artikel(int artikelNummer, double artikelPreis, String artikelBezeichnung) {
 		this.artikelNummer = artikelNummer;
 		this.artikelPreis = artikelPreis;
 		this.artikelBezeichnung = artikelBezeichnung;
 	}
 
+	// erstellt 10 Artikel
 	public static void initiateWaren() {
-		// erstellt 10 Artikel im Herr der Ringe Fanshop
 		Artikel a1 = new Artikel(1, 19.99, "Der Herr der Ringe - Die Gefährten");
 		Artikel a2 = new Artikel(2, 19.99, "Der Herr der Ringe - Die zwei Türme");
 		Artikel a3 = new Artikel(3, 19.99, "Der Herr der Ringe - Die Rückkehr des Königs");
@@ -35,6 +35,7 @@ public class Artikel {
 		Collections.addAll(waren, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10);
 	}
 
+	//zeigt Warensortiment
 	public static void printWaren() {
 		// for-each loop, der "Warensortiment" ausgibt
 		// sollten wir noch schöner gestalten :)
@@ -45,9 +46,7 @@ public class Artikel {
 		}
 	}
 
-	// dadurch können wir den Inhalt des Artikels als String printen und nicht als
-	// Objekt (Warenkorb@Zahl)
-	// Muss auch angepasst werden
+	// ToString
 	@Override
 	public String toString() {
 		return "Artikelnummer: " + artikelNummer + "; Name: " + artikelBezeichnung + "; Preis: " + artikelPreis + " €";
