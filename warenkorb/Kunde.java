@@ -47,8 +47,8 @@ public class Kunde {
 	}
 
 	// Aufruf Warenkorb.addWaren Methode
-	public void addToWarenkorb(Artikel artikel) {
-		warenkorb.addWaren(artikel);
+	public void addToWarenkorb(Artikel artikel, int addAnzahl) {
+		warenkorb.addWaren(artikel, addAnzahl);
 	}
 
 	// Aufruf Warenkorb.changeAnzahlW Methode
@@ -61,6 +61,8 @@ public class Kunde {
 	public void clearWarenkorb() {
 		warenkorb.clearWaren();
 	}
+
+	// Sollen wir vlt. eine printMyWarenkorb Methode machen?
 
 	@Override
 	public String toString() {
