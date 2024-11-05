@@ -5,6 +5,7 @@ import java.util.Collections;
 
 public class Warenkorb {
     // initiiert Warenkorb der Artikel speichern kann
+	ArrayList<Artikel> warenkorb;
 
 	// Konstruktor erstellt nur eine ArrayList in der Artikel
 	// gespeichert werden können
