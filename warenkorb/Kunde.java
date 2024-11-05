@@ -1,5 +1,8 @@
 package warenkorb;
 
+import java.util.Scanner;
+
+
 public class Kunde {
 	// Attribute
 	private Warenkorb warenkorb;
@@ -11,6 +14,9 @@ public class Kunde {
 	// Counter wird benutzt um kundenNummer bei jedem Aufrufen des Konstruktors um 1
 	// zu erhöhen
 	private static int counter = 1;
+	// Scanner object erstellen
+	
+
 
 	// Konstruktor
 	public Kunde(String vorName, String nachName, String lieferAdresse, String rechnungsAdresse) {
@@ -25,6 +31,21 @@ public class Kunde {
 		// wollen
 	}
 
+	public static Kunde kundenKontoErstellen() {
+		Scanner scanner = new Scanner(System.in);
+		// Kundenkonto erstellen
+		System.out.println("Bitte erstellen Sie Ihr Kundenkonto.");
+		System.out.println("Nachname:");
+		String kNachname = scanner.nextLine();
+		System.out.println("Vorname:");
+		String kVorName = scanner.nextLine();
+		System.out.println("Adresse:");
+		String kAdresse = scanner.nextLine();
+		Kunde k = new Kunde(kVorName, kNachname, kAdresse, kAdresse);
+		scanner.close();
+		return k;
+	}
+
 	// Aufruf Warenkorb.addWaren Methode
 	public void addToWarenkorb(Artikel artikel, int addAnzahl) {
 		warenkorb.addWaren(artikel, addAnzahl);
@@ -36,6 +57,7 @@ public class Kunde {
 	}
 
 	// Aufruf Warenkorb.clearWaren Methode
+
 	public void clearWarenkorb() {
 		warenkorb.clearWaren();
 	}
