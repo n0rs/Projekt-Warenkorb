@@ -36,6 +36,7 @@ public class Kunde {
 	}
 
 	// Aufruf Warenkorb.clearWaren Methode
+
 	public void clearWarenkorb() {
 		warenkorb.clearWaren();
 	}

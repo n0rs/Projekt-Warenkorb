@@ -4,8 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Warenkorb {
-	// initiiert Warenkorb der Artikel speichern kann
-	private ArrayList<Artikel> warenkorb;
+    // initiiert Warenkorb der Artikel speichern kann
 
 	// Konstruktor erstellt nur eine ArrayList in der Artikel
 	// gespeichert werden können
@@ -80,12 +79,8 @@ public class Warenkorb {
 		return sb.toString() + "Total: " + getTotal() + "€";
 	}
 
-	// Getter/Setter
-	public ArrayList<Artikel> getWarenkorb() {
-		return warenkorb;
-	}
 
-	public void setWarenkorb(ArrayList<Artikel> warenkorb) {
-		this.warenkorb = warenkorb;
-	}
+    public void setWarenkorb(ArrayList<Artikel> warenkorb) {
+        this.warenkorb = warenkorb;
+    }
 }
