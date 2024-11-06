@@ -32,6 +32,8 @@ public class Kunde {
 	}
 
 	public static Kunde kundenKontoErstellen() {
+		Kunde k;
+
 		Scanner scanner = new Scanner(System.in);
 		// Kundenkonto erstellen
 		System.out.println("Bitte erstellen Sie Ihr Kundenkonto.");
@@ -41,8 +43,7 @@ public class Kunde {
 		String kVorName = scanner.nextLine();
 		System.out.println("Adresse:");
 		String kAdresse = scanner.nextLine();
-		Kunde k = new Kunde(kVorName, kNachname, kAdresse, kAdresse);
-		scanner.close();
+		k = new Kunde(kVorName, kNachname, kAdresse, kAdresse);
 		return k;
 	}
 
@@ -57,7 +58,6 @@ public class Kunde {
 	}
 
 	// Aufruf Warenkorb.clearWaren Methode
-
 	public void clearWarenkorb() {
 		warenkorb.clearWaren();
 	}
