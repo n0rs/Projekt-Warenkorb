@@ -40,6 +40,11 @@ public class Kunde {
 		warenkorb.clearWaren();
 	}
 
+	// Aufruf Warenkorb.calcShipping Methode
+	public double prizeShipping() {
+		return warenkorb.calcShipping();
+	}
+
 	// Sollen wir vlt. eine printMyWarenkorb Methode machen?
 
 	@Override

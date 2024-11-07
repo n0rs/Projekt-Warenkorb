@@ -41,6 +41,22 @@ public class Warenkorb {
 		return Math.round(100.0 * total) / 100.0;
 	}
 
+	// berechnet die Versandkosten, die separat ausgewiesen werden
+	public double calcShipping() {
+
+		double s1 = 5.95;
+		double s2 = 2.95;
+		double s3 = 0.00;
+
+		if (getTotal() <= 20) {
+			return s1;
+		} else if (getTotal() > 20 && getTotal() <= 50) {
+			return s2;
+		} else {
+			return s3;
+		}
+	}
+
 	// verändert die Anzahl eines Artikels im Warenkorb
 	public void changeAnzahlW(Artikel artikel, int Anzahl) {
 
@@ -99,7 +115,7 @@ public class Warenkorb {
 		for (Artikel artikel : warenkorb) {
 			sb.append(artikel.toString()).append("\n");
 		}
-		return sb.toString() + "Total: " + getTotal() + "€";
+		return sb.toString() + "Total: " + getTotal() + "€" + "\nShipping: " + calcShipping() + "€";
 	}
 
 	// Getter/Setter

@@ -1,7 +1,5 @@
 package warenkorb;
 
-import java.util.Scanner;
-
 public class Main {
 	public static void main(String[] args) {
 		System.out.println("Wilkommen in Ihrem Herr der Ringe Fanshop. Wir wünschen viel Spaß und gutes Shopping!\n");
@@ -11,13 +9,13 @@ public class Main {
 //		Artikel.printWaren();
 		// System.out.println(k1.getKundenNummer());
 		// System.out.println(k2.getKundenNummer());
-		k1.addToWarenkorb(Artikel.waren.get(0),1);
-		k2.addToWarenkorb(Artikel.waren.get(9),3);
+		k1.addToWarenkorb(Artikel.waren.get(0), 1);
+		k2.addToWarenkorb(Artikel.waren.get(3), 3);
 		// System.out.println(k1.getLieferAdresse());
 		// System.out.println(k2.getLieferAdresse());
-		
+		// k2.prizeShipping();
+
 		System.out.println(k2.getWarenkorb());
-		
-		
+
 	}
 }
