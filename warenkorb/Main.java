@@ -1,7 +1,5 @@
 package warenkorb;
 
-import java.util.Scanner;
-
 public class Main {
 	public static void main(String[] args) {
 		// break variable for while loop
@@ -34,6 +32,7 @@ public class Main {
 		else if (i.equals("N")) {
 			running = false;
 		}
+    k2.endBestellung();
 		}
 		scanner.close();
 	}

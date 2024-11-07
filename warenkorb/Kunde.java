@@ -62,8 +62,21 @@ public class Kunde {
 		warenkorb.clearWaren();
 	}
 
-	// Sollen wir vlt. eine printMyWarenkorb Methode machen?
+	// Aufruf Warenkorb.calcShipping Methode
+	public double prizeShipping() {
+		return warenkorb.calcShipping();
+	}
 
+	//um Bestellbestätigung einfacher zu printen
+	public String lineSep()	{
+		return "\n-----------------------------------\n";
+	}
+	
+	//gibt Bestellbestätigung aus
+	public void endBestellung()	{
+		System.out.println("\nÜbersicht\n\n" + toString() + lineSep() + warenkorb.toString() + lineSep() + "Vielen Dank für Ihre Bestellung!");
+	}
+	
 	@Override
 	public String toString() {
 		return "Name: " + vorName + " " + nachName + "\nLieferadresse: " + lieferAdresse + "\nRechnungsadresse: "
