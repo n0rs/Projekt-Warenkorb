@@ -115,8 +115,13 @@ public class Warenkorb {
 		for (Artikel artikel : warenkorb) {
 			sb.append(artikel.toString()).append("\n");
 		}
-		return sb.toString() + "Total: " + getTotal() + "€" + "\nShipping: " + calcShipping() + "€";
+		return sb.toString() + lineSep() + "Total: " + getTotal() + " €" + "\nVersand: " + calcShipping() + " €";
 	}
+	
+	public String lineSep()	{
+		return "-----------------------------------\n";
+	}
+
 
 	// Getter/Setter
 	public ArrayList<Artikel> getWarenkorb() {

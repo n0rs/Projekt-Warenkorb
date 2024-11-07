@@ -49,7 +49,7 @@ public class Artikel {
 	// ToString
 	@Override
 	public String toString() {
-		return "Artikelnummer: " + artikelNummer + "; Name: " + artikelBezeichnung + "; Preis: " + artikelPreis + " €";
+		return "Artikelnr. " + artikelNummer + "; Name: " + artikelBezeichnung + "; Preis: " + artikelPreis + " €";
 	}
 
 	// Getter und Setter für alle Attribute der Artikel

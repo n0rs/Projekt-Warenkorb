@@ -45,8 +45,19 @@ public class Kunde {
 		return warenkorb.calcShipping();
 	}
 
-	// Sollen wir vlt. eine printMyWarenkorb Methode machen?
-
+	public String lineSep()	{
+		return "\n-----------------------------------\n";
+	}
+	
+	
+	public String printBestelluebersicht()	{
+		return "\nÜbersicht\n\nName: " + vorName + " " + nachName + "\nLieferadresse: " + lieferAdresse + "\nKundennummer: " + kundenNummer + lineSep() + warenkorb.toString();
+	}
+	
+	public void endBestellung()	{
+		System.out.println(printBestelluebersicht() + lineSep() + "Vielen Dank für Ihre Bestellung!");
+	}
+	
 	@Override
 	public String toString() {
 		return "Name: " + vorName + " " + nachName + "\nLieferadresse: " + lieferAdresse + "\nRechnungsadresse: "

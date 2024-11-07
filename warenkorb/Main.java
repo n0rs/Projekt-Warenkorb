@@ -15,7 +15,7 @@ public class Main {
 		// System.out.println(k2.getLieferAdresse());
 		// k2.prizeShipping();
 
-		System.out.println(k2.getWarenkorb());
+		k2.endBestellung();
 
 	}
 }
