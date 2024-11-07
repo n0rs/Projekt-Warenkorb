@@ -23,11 +23,12 @@ public class Main {
 			System.out.println("Bitte fügen Sie jetzt etwas Ihrem Warenkorb hinzu.\nGeben Sie die Artikelnummer und die Anzahl die Sie hinzufügen wollen an.");
 			int x = scanner.nextInt();
 			int y = scanner.nextInt();
-			k2.addToWarenkorb(Artikel.waren.get(x - 1), y);
+			k3.addToWarenkorb(Artikel.waren.get(x - 1), y);
+			System.out.println("Dies ist Ihr aktueller Warenkorb:");
+			System.out.println(k3.getWarenkorb());
 			// k2.addToWarenkorb(Artikel.waren.get(7),3);
-			System.out.println(k2.getWarenkorb());
-			System.out.println();
-			System.out.println(k3.getKundenNummer());
+			//System.out.println();
+			//System.out.println(k3.getKundenNummer());
 			running = false;
 		} 
 		else if (i.equals("N")) {
