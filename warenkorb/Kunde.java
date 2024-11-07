@@ -50,12 +50,8 @@ public class Kunde {
 	}
 	
 	
-	public String printBestelluebersicht()	{
-		return "\nÜbersicht\n\nName: " + vorName + " " + nachName + "\nLieferadresse: " + lieferAdresse + "\nKundennummer: " + kundenNummer + lineSep() + warenkorb.toString();
-	}
-	
 	public void endBestellung()	{
-		System.out.println(printBestelluebersicht() + lineSep() + "Vielen Dank für Ihre Bestellung!");
+		System.out.println("\nÜbersicht\n\nName: " + vorName + " " + nachName + "\nLieferadresse: " + lieferAdresse + "\nKundennummer: " + kundenNummer + lineSep() + warenkorb.toString() + lineSep() + "Vielen Dank für Ihre Bestellung!");
 	}
 	
 	@Override
