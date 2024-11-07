@@ -118,6 +118,7 @@ public class Warenkorb {
 		return sb.toString() + lineSep() + "Total: " + getTotal() + " €" + "\nVersand: " + calcShipping() + " €";
 	}
 	
+	//um toString() übersichtlicher zu machen
 	public String lineSep()	{
 		return "-----------------------------------\n";
 	}

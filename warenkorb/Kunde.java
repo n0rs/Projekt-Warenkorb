@@ -45,13 +45,14 @@ public class Kunde {
 		return warenkorb.calcShipping();
 	}
 
+	//um Bestellbestätigung einfacher zu printen
 	public String lineSep()	{
 		return "\n-----------------------------------\n";
 	}
 	
-	
+	//gibt Bestellbestätigung aus
 	public void endBestellung()	{
-		System.out.println("\nÜbersicht\n\nName: " + vorName + " " + nachName + "\nLieferadresse: " + lieferAdresse + "\nKundennummer: " + kundenNummer + lineSep() + warenkorb.toString() + lineSep() + "Vielen Dank für Ihre Bestellung!");
+		System.out.println("\nÜbersicht\n\n" + toString() + lineSep() + warenkorb.toString() + lineSep() + "Vielen Dank für Ihre Bestellung!");
 	}
 	
 	@Override
