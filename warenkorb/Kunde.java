@@ -44,6 +44,7 @@ public class Kunde {
 		System.out.println("Adresse:");
 		String kAdresse = scanner.nextLine();
 		k = new Kunde(kVorName, kNachname, kAdresse, kAdresse);
+		scanner.close();
 		return k;
 	}
 

@@ -87,7 +87,6 @@ public class Warenkorb {
 			System.out.println(
 					"Warenkorb fasst max. 100 Artikel. Ihr aktueller Warenkorb: " + warenkorb.size() + " Elemente.");
 		}
-
 	}
 
 	// entfernt alle Artikel vom Typ x aus der ArrayList

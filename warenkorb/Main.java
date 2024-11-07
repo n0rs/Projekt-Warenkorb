@@ -1,5 +1,7 @@
 package warenkorb;
 
+import java.util.Scanner;
+
 public class Main {
 	public static void main(String[] args) {
 		// break variable for while loop
@@ -27,12 +29,12 @@ public class Main {
 			// k2.addToWarenkorb(Artikel.waren.get(7),3);
 			//System.out.println();
 			//System.out.println(k3.getKundenNummer());
+			k2.endBestellung();
 			running = false;
 		} 
 		else if (i.equals("N")) {
 			running = false;
 		}
-    k2.endBestellung();
 		}
 		scanner.close();
 	}
