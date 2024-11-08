@@ -48,7 +48,7 @@ public class Warenkorb {
 		double s2 = 2.95;
 		double s3 = 0.00;
 
-		if (getTotal() <= 20) {
+		if (getTotal() <= 20 && getTotal() > 0) {
 			return s1;
 		} else if (getTotal() > 20 && getTotal() <= 50) {
 			return s2;
