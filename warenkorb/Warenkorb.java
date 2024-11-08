@@ -122,8 +122,6 @@ public class Warenkorb {
 		return "-----------------------------------\n";
 	}
 
-
-
     public void setWarenkorb(ArrayList<Artikel> warenkorb) {
         this.warenkorb = warenkorb;
     }
