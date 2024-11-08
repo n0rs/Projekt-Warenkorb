@@ -109,20 +109,22 @@ public class Warenkorb {
 	// ToString
 	@Override
 	public String toString() {
-		// (Liv) getTotal() zu toString() hinzugefügt
+		if (warenkorb.size() > 0) {
 
-		StringBuilder sb = new StringBuilder();
-		for (Artikel artikel : warenkorb) {
-			sb.append(artikel.toString()).append("\n");
+			StringBuilder sb = new StringBuilder();
+			for (Artikel artikel : warenkorb) {
+				sb.append(artikel.toString()).append("\n");
+			}
+			return sb.toString() + lineSep() + "Total: " + getTotal() + " €" + "\nVersand: " + calcShipping() + " €";
+		} else {
+			return "Der Warenkorb ist leer.";
 		}
-		return sb.toString() + lineSep() + "Total: " + getTotal() + " €" + "\nVersand: " + calcShipping() + " €";
 	}
-	
-	//um toString() übersichtlicher zu machen
-	public String lineSep()	{
+
+	// um toString() übersichtlicher zu machen
+	public String lineSep() {
 		return "-----------------------------------\n";
 	}
-
 
 	// Getter/Setter
 	public ArrayList<Artikel> getWarenkorb() {
