@@ -2,7 +2,6 @@ package warenkorb;
 
 import java.util.Scanner;
 
-
 public class Kunde {
 	// Attribute
 	private Warenkorb warenkorb;
@@ -15,8 +14,6 @@ public class Kunde {
 	// zu erhöhen
 	private static int counter = 1;
 	// Scanner object erstellen
-	
-
 
 	// Konstruktor
 	public Kunde(String vorName, String nachName, String lieferAdresse, String rechnungsAdresse) {
@@ -67,16 +64,23 @@ public class Kunde {
 		return warenkorb.calcShipping();
 	}
 
-	//um Bestellbestätigung einfacher zu printen
-	public String lineSep()	{
+	// um Bestellbestätigung einfacher zu printen
+	public String lineSep() {
 		return "\n-----------------------------------\n";
 	}
-	
-	//gibt Bestellbestätigung aus
-	public void endBestellung()	{
-		System.out.println("\nÜbersicht\n\n" + toString() + lineSep() + warenkorb.toString() + lineSep() + "Vielen Dank für Ihre Bestellung!");
+
+	// gibt Bestellbestätigung aus
+	public void endBestellung() {
+		if (warenkorb.getTotal() > 0) {
+			System.out.println("\nÜbersicht\n\n" + toString() + lineSep() + warenkorb.toString() + lineSep()
+					+ "Vielen Dank für Ihre Bestellung!");
+		} else {
+			System.out.println("\nÜbersicht\n\n" + toString() + lineSep() + warenkorb.toString() + lineSep()
+					+ "Bestellvorgang abgebrochen");
+
+		}
 	}
-	
+
 	@Override
 	public String toString() {
 		return "Name: " + vorName + " " + nachName + "\nLieferadresse: " + lieferAdresse + "\nRechnungsadresse: "
