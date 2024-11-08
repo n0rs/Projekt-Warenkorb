@@ -68,16 +68,22 @@ public class Kunde {
 		return warenkorb.calcShipping();
 	}
 
-	//um Bestellbestätigung einfacher zu printen
-	public String lineSep()	{
+	// um Bestellbestätigung einfacher zu printen
+	public String lineSep() {
 		return "\n-----------------------------------\n";
 	}
-	
-	//gibt Bestellbestätigung aus
-	public void endBestellung()	{
-		System.out.println("\nÜbersicht\n\n" + toString() + lineSep() + warenkorb.toString() + lineSep() + "Vielen Dank für Ihre Bestellung!");
+
+	// gibt Bestellbestätigung aus
+	public void endBestellung() {
+		if (warenkorb.getTotal() > 0) {
+			System.out.println("\nÜbersicht\n\n" + toString() + lineSep() + warenkorb.toString() + lineSep()
+					+ "Vielen Dank für Ihre Bestellung!");
+		} else {
+			System.out.println("\nÜbersicht\n\n" + toString() + lineSep() + warenkorb.toString() + lineSep()
+					+ "Bestellvorgang abgebrochen");
+		}
 	}
-	
+
 	@Override
 	public String toString() {
 		return "Name: " + vorName + " " + nachName + "\nLieferadresse: " + lieferAdresse + "\nRechnungsadresse: "

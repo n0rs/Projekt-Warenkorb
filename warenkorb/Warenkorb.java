@@ -48,7 +48,7 @@ public class Warenkorb {
 		double s2 = 2.95;
 		double s3 = 0.00;
 
-		if (getTotal() <= 20) {
+		if (getTotal() <= 20 && getTotal() > 0) {
 			return s1;
 		} else if (getTotal() > 20 && getTotal() <= 50) {
 			return s2;
@@ -60,30 +60,31 @@ public class Warenkorb {
 	// verändert die Anzahl eines Artikels im Warenkorb
 	public void changeAnzahlW(Artikel artikel, int Anzahl) {
 
+		// Überprüfung max. Anzahl
 		if (warenkorb.size() + Anzahl <= 100 && Anzahl >= 0) {
 
-			if (Anzahl > Collections.frequency(warenkorb, artikel)) {
+			if (Anzahl > Collections.frequency(warenkorb, artikel)) { // Anzahl erhöhen
 				int diff = Anzahl - Collections.frequency(warenkorb, artikel);
 				while (diff > 0) {
 					warenkorb.add(artikel);
 					diff--;
 				}
-			} else if (Anzahl < Collections.frequency(warenkorb, artikel)) {
+			} else if (Anzahl < Collections.frequency(warenkorb, artikel)) { // Anzahl verringern
 				int diff = Collections.frequency(warenkorb, artikel) - Anzahl;
 				while (diff > 0) {
 					warenkorb.remove(artikel);
 					diff--;
 				}
-			} else if (Anzahl == Collections.frequency(warenkorb, artikel)) {
+			} else if (Anzahl == Collections.frequency(warenkorb, artikel)) { // Anzahl entspricht vorhandener Anzahl
 				System.out.println(
 						"Hinweis: '" + artikel.getArtikelBezeichnung() + "' ist bereits " + Anzahl + "-mal vorhanden.");
-			} else if (Anzahl == 0) {
+			} else if (Anzahl == 0) { // Anzahl 0 = Artikel werden entfernt
 				removeallArtikelx(artikel);
 			}
 
-		} else if (Anzahl < 0) {
+		} else if (Anzahl < 0) { // Fall: negative/ungültige Eingabe
 			System.out.println("Ungültige Eingabe. Anzahl darf keinen negativen Wert haben.");
-		} else {
+		} else { // Fall: über 100 Artikel
 			System.out.println(
 					"Warenkorb fasst max. 100 Artikel. Ihr aktueller Warenkorb: " + warenkorb.size() + " Elemente.");
 		}
@@ -108,21 +109,31 @@ public class Warenkorb {
 	// ToString
 	@Override
 	public String toString() {
-		// (Liv) getTotal() zu toString() hinzugefügt
+		if (warenkorb.size() > 0) {
 
-		StringBuilder sb = new StringBuilder();
-		for (Artikel artikel : warenkorb) {
-			sb.append(artikel.toString()).append("\n");
+			StringBuilder sb = new StringBuilder();
+			for (Artikel artikel : warenkorb) {
+				sb.append(artikel.toString()).append("\n");
+			}
+			return sb.toString() + lineSep() + "Total: " + getTotal() + " €" + "\nVersand: " + calcShipping() + " €";
+		} else {
+			return "Der Warenkorb ist leer.";
 		}
-		return sb.toString() + lineSep() + "Total: " + getTotal() + " €" + "\nVersand: " + calcShipping() + " €";
 	}
-	
-	//um toString() übersichtlicher zu machen
-	public String lineSep()	{
+
+	// um toString() übersichtlicher zu machen
+	public String lineSep() {
 		return "-----------------------------------\n";
 	}
 
-    public void setWarenkorb(ArrayList<Artikel> warenkorb) {
-        this.warenkorb = warenkorb;
-    }
+
+	// Getter/Setter
+	public ArrayList<Artikel> getWarenkorb() {
+		return warenkorb;
+	}
+
+	public void setWarenkorb(ArrayList<Artikel> warenkorb) {
+		this.warenkorb = warenkorb;
+	}
 }
+
