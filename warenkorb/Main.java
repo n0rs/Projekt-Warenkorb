@@ -37,6 +37,5 @@ public class Main {
 			}
 			k3.endBestellung();
 		}
-		scanner.close();
 	}
 }

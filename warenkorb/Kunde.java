@@ -77,7 +77,6 @@ public class Kunde {
 		} else {
 			System.out.println("\nÜbersicht\n\n" + toString() + lineSep() + warenkorb.toString() + lineSep()
 					+ "Bestellvorgang abgebrochen");
-
 		}
 	}
 

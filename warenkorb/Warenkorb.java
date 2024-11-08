@@ -89,7 +89,6 @@ public class Warenkorb {
 			System.out.println(
 					"Warenkorb fasst max. 100 Artikel. Ihr aktueller Warenkorb: " + warenkorb.size() + " Elemente.");
 		}
-
 	}
 
 	// entfernt alle Artikel vom Typ x aus der ArrayList
@@ -113,7 +112,6 @@ public class Warenkorb {
 	public String toString() {
 
 		if (warenkorb.size() > 0) {
-
 			StringBuilder sb = new StringBuilder();
 			for (Artikel artikel : warenkorb) {
 				sb.append(artikel.toString()).append("\n");
@@ -127,6 +125,11 @@ public class Warenkorb {
 	// um toString() übersichtlicher zu machen
 	public String lineSep() {
 		return "-----------------------------------\n";
+	}
+
+	// Getter/Setter
+	public ArrayList<Artikel> getWarenkorb() {
+		return warenkorb;
 	}
 
 	public void setWarenkorb(ArrayList<Artikel> warenkorb) {
