@@ -25,7 +25,7 @@ public class Warenkorb {
 			System.out.println("Ungültige Eingabe. Anzahl muss einen Wert über 0 haben.");
 		} else {
 			System.out.println(
-					"Warenkorb fasst max. 100 Artikel. Ihr aktueller Warenkorb: " + warenkorb.size() + " Elemente.");
+				"Warenkorb fasst max. 100 Artikel. Ihr aktueller Warenkorb: " + warenkorb.size() + " Elemente.");
 		}
 	}
 
