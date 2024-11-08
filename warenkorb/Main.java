@@ -35,6 +35,7 @@ public class Main {
 			} else if (i.equals("N")) {
 				running = false;
 			}
+			scanner.close();
 		}
 	}
 }
