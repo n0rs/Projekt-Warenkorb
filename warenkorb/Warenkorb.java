@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class Warenkorb {
-	// initiiert Warenkorb der Artikel speichern kann
-	private ArrayList<Artikel> warenkorb;
+    // initiiert Warenkorb der Artikel speichern kann
+	ArrayList<Artikel> warenkorb;
 
 	// Konstruktor erstellt nur eine ArrayList in der Artikel
 	// gespeichert werden können
@@ -88,7 +88,6 @@ public class Warenkorb {
 			System.out.println(
 					"Warenkorb fasst max. 100 Artikel. Ihr aktueller Warenkorb: " + warenkorb.size() + " Elemente.");
 		}
-
 	}
 
 	// entfernt alle Artikel vom Typ x aus der ArrayList
@@ -127,6 +126,7 @@ public class Warenkorb {
 		return "-----------------------------------\n";
 	}
 
+
 	// Getter/Setter
 	public ArrayList<Artikel> getWarenkorb() {
 		return warenkorb;
@@ -136,3 +136,4 @@ public class Warenkorb {
 		this.warenkorb = warenkorb;
 	}
 }
+

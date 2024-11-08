@@ -39,17 +39,18 @@ public class Artikel {
 	public static void printWaren() {
 		// for-each loop, der "Warensortiment" ausgibt
 		// sollten wir noch schöner gestalten :)
+		System.out.printf("%-15s | %-45s | %-10s%n", "Artikelnummer", "Name", "Preis");
 		for (Artikel artikel : waren) {
-			System.out.print(artikel.artikelNummer + " | ");
-			System.out.print(artikel.artikelBezeichnung + " | ");
-			System.out.println(artikel.artikelPreis);
-		}
+			System.out.printf("%-15d | %-45s | €%-10.2f%n", artikel.artikelNummer, artikel.artikelBezeichnung, artikel.artikelPreis);
+		}	
 	}
 
 	// ToString
 	@Override
 	public String toString() {
+
 		return "Artikelnr. " + artikelNummer + "; Name: " + artikelBezeichnung + "; Preis: " + artikelPreis + " €";
+
 	}
 
 	// Getter und Setter für alle Attribute der Artikel
