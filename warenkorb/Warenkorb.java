@@ -111,7 +111,7 @@ public class Warenkorb {
 	@Override
 	public String toString() {
 
-		if (warenkorb.size() > 0) {
+		if (warenkorb.isEmpty() == false) {
 			StringBuilder sb = new StringBuilder();
 			for (Artikel artikel : warenkorb) {
 				sb.append(artikel.toString()).append("\n");
