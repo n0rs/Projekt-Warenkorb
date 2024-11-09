@@ -12,7 +12,7 @@ public class Main {
 		// begin the program
 		while (running == true) {
 			System.out.println("Wilkommen in Ihrem Herr der Ringe Fanshop. Wir wünschen viel Spaß und gutes Shopping!\n");
-			Kunde k1 = new Kunde("Max", "Mustermann", "Musterstraße 3", "Musterstraße3");
+			Kunde k1 = new Kunde("Max", "Mustermann", "Musterstraße 3", "Musterstraße 3");
 			Kunde k2 = new Kunde("Maxine", "Musterfrau", "Musterweg 12", "Musterweg 12");
 			Kunde k3 = Kunde.kundenKontoErstellen();
 			Artikel.initiateWaren();
