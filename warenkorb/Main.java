@@ -24,7 +24,7 @@ public class Main {
 				k3.addToWarenkorb();
 				OUTER: while (true) {
 					System.out.println(
-							"Aktion wählen:\n(a) Weitere Artikel hinzufügen\n(b) Anzahl der Artikel im Warenkorb ändern\n(c) Warenkorb anzeigen\n(d) Einkauf beenden");
+							"Was möchten Sie tun?\n(a) Artikel hinzufügen\n(b) Anzahl der Artikel im Warenkorb ändern\n(c) Warenkorb anzeigen\n(d) Sortiment anzeigen\n(e) Meine Daten ändern\n(f) Einkauf beenden");
 					String f = scanner.nextLine();
 					switch (f) {
 					case "a" -> {
@@ -39,6 +39,14 @@ public class Main {
 						System.out.println(k3.getWarenkorb());
 						continue;
 					}
+					case "d" -> {
+						Artikel.printWaren();
+						continue;
+					}
+					case "e" -> {
+						Kunde.changeDaten(k3);
+						continue;
+					}
 					default -> {
 						break OUTER;
 					}
@@ -46,9 +54,6 @@ public class Main {
 				}
 				System.out.println("Dies ist Ihr aktueller Warenkorb:");
 				System.out.println(k3.getWarenkorb());
-				// k2.addToWarenkorb(Artikel.waren.get(7),3);
-				// System.out.println();
-				// System.out.println(k3.getKundenNummer());
 				k3.endBestellung();
 				running = false;
 			} else if (i.equals("N") | i.equals("n")) {
