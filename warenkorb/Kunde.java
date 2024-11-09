@@ -30,7 +30,6 @@ public class Kunde {
 
 	public static Kunde kundenKontoErstellen() {
 		Kunde k;
-
 		Scanner scanner = new Scanner(System.in);
 		// Kundenkonto erstellen
 		System.out.println("Bitte erstellen Sie Ihr Kundenkonto.");
@@ -45,7 +44,10 @@ public class Kunde {
 	}
 
 	// Aufruf Warenkorb.addWaren Methode
-	public void addToWarenkorb(Artikel artikel, int addAnzahl) {
+	public void addToWarenkorb() {
+		Scanner scanner = new Scanner(System.in);
+		Artikel artikel = Artikel.waren.get(scanner.nextInt() - 1);
+		int addAnzahl = scanner.nextInt();
 		warenkorb.addWaren(artikel, addAnzahl);
 	}
 
