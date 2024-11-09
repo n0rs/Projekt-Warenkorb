@@ -2,6 +2,7 @@ package warenkorb;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 
 public class Warenkorb {
 	// initiiert Warenkorb der Artikel speichern kann
@@ -112,6 +113,7 @@ public class Warenkorb {
 	public String toString() {
 
 		if (warenkorb.isEmpty() == false) {
+			warenkorb.sort(Comparator.comparing(Artikel::getArtikelNummer));
 			StringBuilder sb = new StringBuilder();
 			for (Artikel artikel : warenkorb) {
 				sb.append(artikel.toString()).append("\n");

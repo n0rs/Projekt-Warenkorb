@@ -20,9 +20,25 @@ public class Main {
 			String i = scanner.nextLine();
 			if (i.equals("Y")) {
 				Artikel.printWaren();
-				System.out.println(
-						"Bitte fügen Sie jetzt etwas Ihrem Warenkorb hinzu.\nGeben Sie die Artikelnummer und die Anzahl die Sie hinzufügen wollen an.");
 				k3.addToWarenkorb();
+				OUTER:
+				while (true) {
+					System.out.println("Fügen Sie nun weitere Artikel hinzu (h), ändern Sie die Anzahl der Artikel in ihrem Warenkorb (c) oder beenden Sie ihren einkauf(e).");
+					String f = scanner.nextLine();
+					switch (f) {
+						case "h" -> {
+							k3.addToWarenkorb();
+							continue;
+						}
+						case "c" -> {
+							k3.changeAnzahl();
+							continue;
+							}
+						default -> {
+							break OUTER;
+							}
+					}
+				}
 				System.out.println("Dies ist Ihr aktueller Warenkorb:");
 				System.out.println(k3.getWarenkorb());
 				// k2.addToWarenkorb(Artikel.waren.get(7),3);

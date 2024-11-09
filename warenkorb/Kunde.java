@@ -45,6 +45,8 @@ public class Kunde {
 
 	// Aufruf Warenkorb.addWaren Methode
 	public void addToWarenkorb() {
+		System.out.println(
+						"Bitte fügen Sie jetzt etwas Ihrem Warenkorb hinzu.\nGeben Sie die Artikelnummer und die Anzahl an, die Sie hinzufügen möchten.");
 		Scanner scanner = new Scanner(System.in);
 		Artikel artikel = Artikel.waren.get(scanner.nextInt() - 1);
 		int addAnzahl = scanner.nextInt();
@@ -52,7 +54,11 @@ public class Kunde {
 	}
 
 	// Aufruf Warenkorb.changeAnzahlW Methode
-	public void changeAnzahl(Artikel artikel, int Anzahl) {
+	public void changeAnzahl() {
+		System.out.println("Ändern Sie die Anzahl eines Artikels durch Eingabe der Artikelnummer und der gewünschten neuen Anzahl.");
+		Scanner scanner = new Scanner(System.in);
+		Artikel artikel = Artikel.waren.get(scanner.nextInt() - 1);
+		int Anzahl = scanner.nextInt();
 		warenkorb.changeAnzahlW(artikel, Anzahl);
 	}
 
