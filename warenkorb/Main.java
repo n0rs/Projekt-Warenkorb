@@ -22,8 +22,6 @@ public class Main {
 				Artikel.printWaren();
 				System.out.println(
 						"Bitte fügen Sie jetzt etwas Ihrem Warenkorb hinzu.\nGeben Sie die Artikelnummer und die Anzahl die Sie hinzufügen wollen an.");
-				//int x = scanner.nextInt();
-				//int y = scanner.nextInt();
 				k3.addToWarenkorb();
 				System.out.println("Dies ist Ihr aktueller Warenkorb:");
 				System.out.println(k3.getWarenkorb());
