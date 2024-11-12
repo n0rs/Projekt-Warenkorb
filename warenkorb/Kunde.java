@@ -73,7 +73,40 @@ public class Kunde {
 		} else {
 			System.out.println("Bitte versuchen Sie es erneut");
 		}
+		// scannerD.close();
 		return k;
+	}
+
+	public boolean warenkorbShowAndConfig() {
+
+		System.out.println(getWarenkorb() + lineSep() + "\n(1) Warenkorb leeren" + "   " + "(2) Bestellung abbrechen"
+				+ "   " + "(3) Zur Kasse gehen" + "   (4) Einkauf fortsetzen");
+
+		Scanner scannerC = new Scanner(System.in);
+		if (scannerC.hasNextInt()) {
+			int auswahl = scannerC.nextInt();
+			switch (auswahl) {
+			case 1 -> {
+				warenkorb.clearWaren();
+				System.out.println("Warenkorb geleert.");
+				return true;
+			}
+			case 2 -> {
+				System.out.println("Bestellung abgebrochen.");
+				return false;
+			}
+			case 3 -> {
+				endBestellung();
+				return false;
+			}
+			default -> {
+				return true;
+			}
+			}
+		} else {
+			System.out.println("Ungültige Eingabe. Einkauf wird fortgesetzt.");
+		}
+		return true;
 	}
 
 	// Aufruf Warenkorb.addWaren Methode
@@ -83,10 +116,10 @@ public class Kunde {
 		Scanner scanner = new Scanner(System.in);
 		if (scanner.hasNextInt()) {
 			Artikel artikel = Artikel.waren.get(scanner.nextInt() - 1);
+			System.out.println("Anzahl: ");
 			if (scanner.hasNextInt()) {
 				int addAnzahl = scanner.nextInt();
 				warenkorb.addWaren(artikel, addAnzahl);
-				System.out.println("Artikel hinzugefügt." + lineSep());
 			} else {
 				System.out.println("Ungültige Eingabe. Bitte versuchen Sie es erneut.");
 			}
@@ -101,6 +134,7 @@ public class Kunde {
 				"Ändern Sie die Anzahl eines Artikels durch Eingabe der Artikelnummer und der gewünschten neuen Anzahl.");
 		Scanner scanner = new Scanner(System.in);
 		Artikel artikel = Artikel.waren.get(scanner.nextInt() - 1);
+		System.out.println("Anzahl: ");
 		int Anzahl = scanner.nextInt();
 		warenkorb.changeAnzahlW(artikel, Anzahl);
 	}
@@ -126,7 +160,7 @@ public class Kunde {
 			System.out.println("\nÜbersicht\n\n" + toString() + lineSep() + "\n" + warenkorb.toString() + lineSep()
 					+ "\nVielen Dank für Ihre Bestellung!");
 		} else {
-			System.out.println("\nÜbersicht\n\n" + toString() + lineSep() + warenkorb.toString() + lineSep()
+			System.out.println("\nÜbersicht\n\n" + toString() + lineSep() + "\n" + warenkorb.toString() + lineSep()
 					+ "\nBestellvorgang abgebrochen");
 		}
 	}
