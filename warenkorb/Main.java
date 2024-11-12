@@ -23,7 +23,7 @@ public class Main {
 				k3.addToWarenkorb();
 				OUTER: while (true) {
 					System.out.println(
-							"\nWas möchten Sie tun?\n(a) Artikel hinzufügen\n(b) Anzahl der Artikel im Warenkorb ändern\n(c) Warenkorb anzeigen\n(d) Sortiment anzeigen\n(e) Meine Daten ändern\n(f) Zur Kasse gehen \n(g) Bestellvorgang abbrechen");
+							"Was möchten Sie tun?\n(a) Artikel hinzufügen\n(b) Anzahl der Artikel im Warenkorb ändern\n(c) Warenkorb anzeigen\n(d) Sortiment anzeigen\n(e) Meine Daten ändern\n(f) Zur Kasse gehen \n(g) Bestellvorgang abbrechen");
 					String f = scanner.nextLine();
 					switch (f) {
 					case "a" -> {
@@ -45,12 +45,12 @@ public class Main {
 									running = true;
 								} else {
 									running = false;
-									System.out.println("Auf Wiedersehen");
+									System.out.println("Auf Wiedersehen.");
 								}
 								break OUTER;
 							}
 						} else {
-							System.out.println("Ihr Warenkorb ist leer");
+							System.out.println("Ihr Warenkorb ist leer!");
 							continue;
 						}
 					}
@@ -71,7 +71,7 @@ public class Main {
 							running = true;
 						} else {
 							running = false;
-							System.out.println("Auf Wiedersehen");
+							System.out.println("Auf Wiedersehen.");
 						}
 						break OUTER;
 					}

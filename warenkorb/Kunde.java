@@ -120,7 +120,6 @@ public class Kunde {
 			if (scanner.hasNextInt()) {
 				int addAnzahl = scanner.nextInt();
 				warenkorb.addWaren(artikel, addAnzahl);
-				System.out.println("Artikel hinzugefügt." + lineSep());
 			} else {
 				System.out.println("Ungültige Eingabe. Bitte versuchen Sie es erneut.");
 			}
@@ -161,7 +160,7 @@ public class Kunde {
 			System.out.println("\nÜbersicht\n\n" + toString() + lineSep() + "\n" + warenkorb.toString() + lineSep()
 					+ "\nVielen Dank für Ihre Bestellung!");
 		} else {
-			System.out.println("\nÜbersicht\n\n" + toString() + lineSep() + warenkorb.toString() + lineSep()
+			System.out.println("\nÜbersicht\n\n" + toString() + lineSep() + "\n" + warenkorb.toString() + lineSep()
 					+ "\nBestellvorgang abgebrochen");
 		}
 	}
