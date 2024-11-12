@@ -64,10 +64,12 @@ public class Warenkorb {
 	public void changeAnzahlW(Artikel artikel, int Anzahl) {
 
 		// Überprüfung max. Anzahl
-		if ((warenkorb.size() - Collections.frequency(warenkorb, artikel)) + Anzahl <=100  | warenkorb.size() + Anzahl <= 100 && Anzahl >= 0) {
+		if (((warenkorb.size() - Collections.frequency(warenkorb, artikel)) + Anzahl <= 100 && Anzahl >= 0)
+				| (warenkorb.size() + Anzahl <= 100 && Anzahl >= 0)) {
 
-			
-			if (Anzahl > Collections.frequency(warenkorb, artikel)) { // Anzahl erhöhen
+			if (Anzahl == 0) { // Anzahl 0 = Artikel werden entfernt
+				removeallArtikelx(artikel);
+			} else if (Anzahl > Collections.frequency(warenkorb, artikel)) { // Anzahl erhöhen
 				int diff = Anzahl - Collections.frequency(warenkorb, artikel);
 				while (diff > 0) {
 					warenkorb.add(artikel);
@@ -86,8 +88,6 @@ public class Warenkorb {
 			} else if (Anzahl == Collections.frequency(warenkorb, artikel)) { // Anzahl entspricht vorhandener Anzahl
 				System.out.println(
 						"Hinweis: '" + artikel.getArtikelBezeichnung() + "' ist bereits " + Anzahl + "-mal vorhanden.");
-			} else if (Anzahl == 0) { // Anzahl 0 = Artikel werden entfernt
-				removeallArtikelx(artikel);
 			}
 
 		} else if (Anzahl < 0) { // Fall: negative/ungültige Eingabe
@@ -107,6 +107,7 @@ public class Warenkorb {
 			warenkorb.remove(artikel);
 			artikelx--;
 		}
+		System.out.println("Alle Artikel vom Typ \"" + artikel.getArtikelBezeichnung() + "\" entfernt.");
 	}
 
 	// entfernt alle Elemente aus dem Warenkorb ArrayList
