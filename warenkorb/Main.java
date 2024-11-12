@@ -13,8 +13,6 @@ public class Main {
 		while (running == true) {
 			System.out
 					.println("Wilkommen in Ihrem Herr der Ringe Fanshop. Wir wünschen viel Spaß und gutes Shopping!\n");
-			Kunde k1 = new Kunde("Max", "Mustermann", "Musterstraße 3", "Musterstraße 3");
-			Kunde k2 = new Kunde("Maxine", "Musterfrau", "Musterweg 12", "Musterweg 12");
 			Kunde k3 = Kunde.kundenKontoErstellen();
 			Artikel.initiateWaren();
 			System.out.println("Möchten Sie sehen, welche Waren wir im Angebot haben? Y/N");
@@ -24,7 +22,7 @@ public class Main {
 				k3.addToWarenkorb();
 				OUTER: while (true) {
 					System.out.println(
-							"Was möchten Sie tun?\n(a) Artikel hinzufügen\n(b) Anzahl der Artikel im Warenkorb ändern\n(c) Warenkorb anzeigen\n(d) Sortiment anzeigen\n(e) Meine Daten ändern\n(f) Einkauf beenden");
+							"\nWas möchten Sie tun?\n(a) Artikel hinzufügen\n(b) Anzahl der Artikel im Warenkorb ändern\n(c) Warenkorb anzeigen\n(d) Sortiment anzeigen\n(e) Meine Daten ändern\n(f) Zur Kasse gehen");
 					String f = scanner.nextLine();
 					switch (f) {
 					case "a" -> {
@@ -36,8 +34,16 @@ public class Main {
 						continue;
 					}
 					case "c" -> {
-						System.out.println(k3.getWarenkorb());
-						continue;
+						if (k3.getWarenkorb().getTotal() > 0) {
+							if (k3.warenkorbShowAndConfig() == true) {
+								continue;
+							} else {
+								break OUTER;
+							}
+						} else {
+							System.out.println("Ihr Warenkorb ist leer!");
+							continue;
+						}
 					}
 					case "d" -> {
 						Artikel.printWaren();
@@ -52,9 +58,6 @@ public class Main {
 					}
 					}
 				}
-				System.out.println("Dies ist Ihr aktueller Warenkorb:");
-				System.out.println(k3.getWarenkorb());
-				k3.endBestellung();
 				running = false;
 			} else if (i.equals("N") | i.equals("n")) {
 				System.out.println("Bestellvorgang abgebrochen.");
