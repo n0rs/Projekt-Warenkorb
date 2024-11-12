@@ -23,10 +23,10 @@ public class Main {
 				k3.addToWarenkorb();
 				OUTER:
 				while (true) {
-					System.out.println("Fügen Sie nun weitere Artikel hinzu (h), ändern Sie die Anzahl der Artikel in ihrem Warenkorb (c) oder beenden Sie ihren einkauf(e).");
+					System.out.println("Fügen Sie nun weitere Artikel hinzu (a), ändern Sie die Anzahl der Artikel in ihrem Warenkorb (c) oder beenden Sie ihren einkauf(e).");
 					String f = scanner.nextLine();
 					switch (f) {
-						case "h" -> {
+						case "a" -> {
 							k3.addToWarenkorb();
 							continue;
 						}
