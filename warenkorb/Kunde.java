@@ -79,8 +79,8 @@ public class Kunde {
 
 	public boolean warenkorbShowAndConfig() {
 
-		System.out.println(getWarenkorb() + lineSep() + "\n(1) Warenkorb leeren" + "   " + "(2) Bestellung abbrechen" + "   "
-				+ "(3) Zur Kasse gehen" + "   (4) Einkauf fortsetzen");
+		System.out.println(getWarenkorb() + lineSep() + "\n(1) Warenkorb leeren" + "   " + "(2) Bestellung abbrechen"
+				+ "   " + "(3) Zur Kasse gehen" + "   (4) Einkauf fortsetzen");
 
 		Scanner scannerC = new Scanner(System.in);
 		if (scannerC.hasNextInt()) {

@@ -8,13 +8,14 @@ public class Main {
 		boolean running = true;
 		// Scanner object
 		Scanner scanner = new Scanner(System.in);
+		Artikel.initiateWaren();
 
 		// begin the program
+
 		while (running == true) {
 			System.out
 					.println("Wilkommen in Ihrem Herr der Ringe Fanshop. Wir wünschen viel Spaß und gutes Shopping!\n");
 			Kunde k3 = Kunde.kundenKontoErstellen();
-			Artikel.initiateWaren();
 			System.out.println("Möchten Sie sehen, welche Waren wir im Angebot haben? Y/N");
 			String i = scanner.nextLine();
 			if (i.equals("Y") | i.equals("y")) {
@@ -22,7 +23,7 @@ public class Main {
 				k3.addToWarenkorb();
 				OUTER: while (true) {
 					System.out.println(
-							"\nWas möchten Sie tun?\n(a) Artikel hinzufügen\n(b) Anzahl der Artikel im Warenkorb ändern\n(c) Warenkorb anzeigen\n(d) Sortiment anzeigen\n(e) Meine Daten ändern\n(f) Zur Kasse gehen");
+							"\nWas möchten Sie tun?\n(a) Artikel hinzufügen\n(b) Anzahl der Artikel im Warenkorb ändern\n(c) Warenkorb anzeigen\n(d) Sortiment anzeigen\n(e) Meine Daten ändern\n(f) Zur Kasse gehen \n(g) Bestellvorgang abbrechen");
 					String f = scanner.nextLine();
 					switch (f) {
 					case "a" -> {
@@ -38,6 +39,14 @@ public class Main {
 							if (k3.warenkorbShowAndConfig() == true) {
 								continue;
 							} else {
+								System.out.println("(a) Neuer Kunde (b) Exit");
+								String Ende = scanner.nextLine();
+								if (Ende.equals("a")) {
+									running = true;
+								} else {
+									running = false;
+									System.out.println("Auf Wiedersehen");
+								}
 								break OUTER;
 							}
 						} else {
@@ -53,15 +62,45 @@ public class Main {
 						Kunde.changeDaten(k3);
 						continue;
 					}
-					default -> {
+
+					case "f" -> {
+						k3.endBestellung();
+						System.out.println("(a) Neuer Kunde (b) Exit");
+						String Ende = scanner.nextLine();
+						if (Ende.equals("a")) {
+							running = true;
+						} else {
+							running = false;
+							System.out.println("Auf Wiedersehen");
+						}
 						break OUTER;
+					}
+					case "g" -> {
+						System.out.println("Bestellvorgang abgebrochen.\n(a) Neuer Kunde   (b) Exit");
+						String k = scanner.nextLine();
+						if (k.equals("a")) {
+							break OUTER;
+						} else {
+							System.out.println("Auf Wiedersehen.");
+							running = false;
+							break OUTER;
+						}
+					}
+					default -> {
+						System.out.println("Ungültige Eingabe. Bitte versuchen Sie es erneut.");
+						continue;
 					}
 					}
 				}
-				running = false;
 			} else if (i.equals("N") | i.equals("n")) {
-				System.out.println("Bestellvorgang abgebrochen.");
-				running = false;
+				System.out.println("Bestellvorgang abgebrochen.\n(a) Neuer Kunde   (b) Exit");
+				String k = scanner.nextLine();
+				if (k.equals("a")) {
+					continue;
+				} else {
+					System.out.println("Auf Wiedersehen.");
+					running = false;
+				}
 			} else {
 				System.out.println("Ungültige Eingabe, versuchen Sie es erneut.\n");
 			}
