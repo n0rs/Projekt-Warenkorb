@@ -41,7 +41,7 @@ public class Main {
 								break OUTER;
 							}
 						} else {
-							System.out.println("Ihr Warenkorb ist leer!");
+							System.out.println("Ihr Warenkorb ist leer");
 							continue;
 						}
 					}
