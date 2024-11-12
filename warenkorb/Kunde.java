@@ -80,7 +80,7 @@ public class Kunde {
 	public boolean warenkorbShowAndConfig() {
 
 		System.out.println(getWarenkorb() + "\n(1) Warenkorb leeren" + "   " + "(2) Bestellung abbrechen"
-				+ "   " + "(3) Zur Kasse gehen");
+				+ "   " + "(3) Zur Kasse gehen" + "   (4) Einkauf fortsetzen");
 
 		Scanner scannerC = new Scanner(System.in);
 		if (scannerC.hasNextInt()) {
@@ -100,13 +100,12 @@ public class Kunde {
 				return false;
 			}
 			default -> {
-
+				return true;
 			}
 			}
 		} else {
-			System.out.println("Bitte versuchen Sie es erneut");
+			System.out.println("Ungültige Eingabe. Einkauf wird fortgesetzt.");
 		}
-		scannerC.close();
 		return true;
 	}
 
