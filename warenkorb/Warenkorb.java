@@ -24,10 +24,10 @@ public class Warenkorb {
 			}
 			System.out.println("Artikel hinzugefügt.\n" + lineSep());
 		} else if (addAnzahl <= 0) {
-			System.out.println("Ungültige Eingabe. Anzahl muss einen Wert über 0 haben.");
+			System.out.println("Ungültige Eingabe. Anzahl muss einen Wert über 0 haben.\n");
 		} else {
 			System.out.println(
-					"Warenkorb fasst max. 100 Artikel. Ihr aktueller Warenkorb: " + warenkorb.size() + " Elemente.");
+					"Warenkorb fasst max. 100 Artikel. Ihr aktueller Warenkorb: " + warenkorb.size() + " Elemente.\n");
 		}
 	}
 
@@ -64,8 +64,9 @@ public class Warenkorb {
 	public void changeAnzahlW(Artikel artikel, int Anzahl) {
 
 		// Überprüfung max. Anzahl
-		if (warenkorb.size() + Anzahl <= 100 && Anzahl >= 0) {
+		if ((warenkorb.size() - Collections.frequency(warenkorb, artikel)) + Anzahl <=100  | warenkorb.size() + Anzahl <= 100 && Anzahl >= 0) {
 
+			
 			if (Anzahl > Collections.frequency(warenkorb, artikel)) { // Anzahl erhöhen
 				int diff = Anzahl - Collections.frequency(warenkorb, artikel);
 				while (diff > 0) {
@@ -130,11 +131,14 @@ public class Warenkorb {
 				StringBuilder s2 = new StringBuilder();
 				for (Artikel artikel : Artikel.waren) {
 					if (Collections.frequency(warenkorb, artikel) >= 1) {
-						s2.append(artikel.toString() + "; Anzahl: " + Collections.frequency(warenkorb, artikel)).append("\n");
-					} else {continue;}
+						s2.append(artikel.toString() + "; Anzahl: " + Collections.frequency(warenkorb, artikel))
+								.append("\n");
+					} else {
+						continue;
+					}
 				}
 				return s2.toString() + lineSep() + "Total: " + getTotal() + " €" + "\nVersand: " + calcShipping()
-				+ " €";
+						+ " €";
 			}
 		} else {
 			return "Der Warenkorb ist leer.";
