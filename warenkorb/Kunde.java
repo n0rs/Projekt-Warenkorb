@@ -37,25 +37,68 @@ public class Kunde {
 		String kNachname = scanner.nextLine();
 		System.out.println("Vorname:");
 		String kVorName = scanner.nextLine();
-		System.out.println("Adresse:");
+		System.out.println("Lieferadresse:");
+		String lAdresse = scanner.nextLine();
+		System.out.println("Rechnungsadresse:");
 		String kAdresse = scanner.nextLine();
-		k = new Kunde(kVorName, kNachname, kAdresse, kAdresse);
+		k = new Kunde(kVorName, kNachname, lAdresse, kAdresse);
+		return k;
+	}
+
+	public static Kunde changeDaten(Kunde k) {
+		System.out.println(k.toString());
+		System.out.println("\nWelche Daten möchten Sie ändern?\n(1) Lieferadresse\n(2) Rechnungsadresse");
+		Scanner scannerD = new Scanner(System.in);
+		if (scannerD.hasNextInt()) {
+			int auswahl = scannerD.nextInt();
+			switch (auswahl) {
+			case 2 -> {
+				System.out.println("Geben Sie Ihre neue Rechnungsadresse ein:");
+				scannerD.nextLine();
+				String newAdressR = scannerD.nextLine();
+				k.setRechnungsAdresse(newAdressR);
+				System.out.println("Adresse geändert.\n");
+			}
+			case 1 -> {
+				System.out.println("Geben Sie Ihre neue Lieferadresse ein:");
+				scannerD.nextLine();
+				String newAdressL = scannerD.nextLine();
+				k.setLieferAdresse(newAdressL);
+				System.out.println("Adresse geändert.\n");
+			}
+			default -> {
+				return k;
+			}
+			}
+		} else {
+			System.out.println("Bitte versuchen Sie es erneut");
+		}
 		return k;
 	}
 
 	// Aufruf Warenkorb.addWaren Methode
 	public void addToWarenkorb() {
 		System.out.println(
-						"Bitte fügen Sie jetzt etwas Ihrem Warenkorb hinzu.\nGeben Sie die Artikelnummer und die Anzahl an, die Sie hinzufügen möchten.");
+				"Bitte fügen Sie jetzt etwas Ihrem Warenkorb hinzu.\nGeben Sie die Artikelnummer und die Anzahl an, die Sie hinzufügen möchten.");
 		Scanner scanner = new Scanner(System.in);
-		Artikel artikel = Artikel.waren.get(scanner.nextInt() - 1);
-		int addAnzahl = scanner.nextInt();
-		warenkorb.addWaren(artikel, addAnzahl);
+		if (scanner.hasNextInt()) {
+			Artikel artikel = Artikel.waren.get(scanner.nextInt() - 1);
+			if (scanner.hasNextInt()) {
+				int addAnzahl = scanner.nextInt();
+				warenkorb.addWaren(artikel, addAnzahl);
+				System.out.println("Artikel hinzugefügt." + lineSep());
+			} else {
+				System.out.println("Ungültige Eingabe. Bitte versuchen Sie es erneut.");
+			}
+		} else {
+			System.out.println("Ungültige Eingabe. Bitte versuchen Sie es erneut.");
+		}
 	}
 
 	// Aufruf Warenkorb.changeAnzahlW Methode
 	public void changeAnzahl() {
-		System.out.println("Ändern Sie die Anzahl eines Artikels durch Eingabe der Artikelnummer und der gewünschten neuen Anzahl.");
+		System.out.println(
+				"Ändern Sie die Anzahl eines Artikels durch Eingabe der Artikelnummer und der gewünschten neuen Anzahl.");
 		Scanner scanner = new Scanner(System.in);
 		Artikel artikel = Artikel.waren.get(scanner.nextInt() - 1);
 		int Anzahl = scanner.nextInt();
@@ -74,17 +117,17 @@ public class Kunde {
 
 	// um Bestellbestätigung einfacher zu printen
 	public String lineSep() {
-		return "\n-----------------------------------\n";
+		return "\n-----------------------------------";
 	}
 
 	// gibt Bestellbestätigung aus
 	public void endBestellung() {
 		if (warenkorb.getTotal() > 0) {
-			System.out.println("\nÜbersicht\n\n" + toString() + lineSep() + warenkorb.toString() + lineSep()
-					+ "Vielen Dank für Ihre Bestellung!");
+			System.out.println("\nÜbersicht\n\n" + toString() + lineSep() + "\n" + warenkorb.toString() + lineSep()
+					+ "\nVielen Dank für Ihre Bestellung!");
 		} else {
 			System.out.println("\nÜbersicht\n\n" + toString() + lineSep() + warenkorb.toString() + lineSep()
-					+ "Bestellvorgang abgebrochen");
+					+ "\nBestellvorgang abgebrochen");
 		}
 	}
 
