@@ -9,6 +9,7 @@ public class Main {
 		// Scanner object
 		Scanner scanner = new Scanner(System.in);
 		Artikel.initiateWaren();
+		String Fehler = "Ungültige Eingabe. Bitte versuchen Sie es erneut.";
 
 		// begin the program
 
@@ -39,14 +40,6 @@ public class Main {
 							if (k3.warenkorbShowAndConfig() == true) {
 								continue;
 							} else {
-								System.out.println("(a) Neuer Kunde (b) Exit");
-								String Ende = scanner.nextLine();
-								if (Ende.equals("a")) {
-									running = true;
-								} else {
-									running = false;
-									System.out.println("Auf Wiedersehen.");
-								}
 								break OUTER;
 							}
 						} else {
@@ -65,44 +58,39 @@ public class Main {
 
 					case "f" -> {
 						k3.endBestellung();
-						System.out.println("(a) Neuer Kunde (b) Exit");
-						String Ende = scanner.nextLine();
-						if (Ende.equals("a")) {
-							running = true;
-						} else {
-							running = false;
-							System.out.println("Auf Wiedersehen.");
-						}
 						break OUTER;
 					}
 					case "g" -> {
-						System.out.println("Bestellvorgang abgebrochen.\n(a) Neuer Kunde   (b) Exit");
-						String k = scanner.nextLine();
-						if (k.equals("a")) {
-							break OUTER;
-						} else {
-							System.out.println("Auf Wiedersehen.");
-							running = false;
-							break OUTER;
-						}
+						System.out.println("Bestellungvorgang abgebrochen.");
+						break OUTER;
 					}
 					default -> {
-						System.out.println("Ungültige Eingabe. Bitte versuchen Sie es erneut.");
+						System.out.println(Fehler);
 						continue;
 					}
 					}
 				}
-			} else if (i.equals("N") | i.equals("n")) {
-				System.out.println("Bestellvorgang abgebrochen.\n(a) Neuer Kunde   (b) Exit");
-				String k = scanner.nextLine();
-				if (k.equals("a")) {
-					continue;
-				} else {
+			} else if (!i.equals("N") && !i.equals("n")) {
+				System.out.println(Fehler);
+			}
+			INNER: while (running = true) {
+				System.out.println("(a) Neuer Kunde (b) Exit");
+				String Ende = scanner.nextLine();
+				switch (Ende) {
+				case ("b") -> {
 					System.out.println("Auf Wiedersehen.");
 					running = false;
+					break INNER;
 				}
-			} else {
-				System.out.println("Ungültige Eingabe, versuchen Sie es erneut.\n");
+				case ("a") -> {
+					running = true;
+					break INNER;
+				}
+				default -> {
+					System.out.println(Fehler);
+					continue;
+				}
+				}
 			}
 		}
 		scanner.close();
