@@ -1,5 +1,6 @@
 package warenkorb;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -10,89 +11,128 @@ public class Main {
 		Scanner scanner = new Scanner(System.in);
 		Artikel.initiateWaren();
 		String Fehler = "Ungültige Eingabe. Bitte versuchen Sie es erneut.";
+		ArrayList<Kunde> Kundenliste = new ArrayList<Kunde>();
+		Kunde k1 = new Kunde("", "", "", "");
 
 		// begin the program
-
 		while (running == true) {
-			System.out
-					.println("Wilkommen in Ihrem Herr der Ringe Fanshop. Wir wünschen viel Spaß und gutes Shopping!\n");
-			Kunde k3 = Kunde.kundenKontoErstellen();
+			System.out.println("Wilkommen in Ihrem Herr der Ringe Fanshop. Wir wünschen viel Spaß und gutes Shopping!");
+
+			// Beginn Login-Vorgang
+			INNER: while (true) {
+				System.out.println("(a) Neuer Kunde   (b) Login");
+				String Log = scanner.nextLine();
+				switch (Log) {
+				case ("b") -> { // Fall: Bekannter Kunde
+					System.out.println("Ihre Kundennummer: ");
+					int Knr = scanner.nextInt();
+
+					for (int i = 0; i < Kundenliste.size(); i++) {
+						if (Kundenliste.get(i).getKundenNummer() == Knr) {
+							k1 = Kundenliste.get(i);
+							System.out.println("Willkommen, " + k1.getVorName() + "!");
+							scanner.nextLine();
+							break INNER;
+							// Kundennummer ist vorhanden
+						}
+					}
+					// Neustart Login Vorgang
+					System.out.println("Daten nicht vorhanden. Versuchen Sie es erneut.");
+					scanner.nextLine();
+					continue INNER;
+				}
+				default -> { // Fall: Neuer Kunde
+					k1 = Kunde.kundenKontoErstellen();
+					System.out.println("Kundendaten speichern? Y/N"); // Speicher-Dialog
+					String speich = scanner.nextLine();
+					if (speich.equals("Y") | speich.equals("y")) {
+						Kundenliste.add(k1);
+						System.out.print("Daten gespeichert. Kundennummer: " + k1.getKundenNummer() + "\n");
+					}
+				}
+				}
+				break INNER;
+			} // Ende Login-Vorgang
+
+			// Beginn Einkauf
 			System.out.println("Möchten Sie sehen, welche Waren wir im Angebot haben? Y/N");
+
 			String i = scanner.nextLine();
 			if (i.equals("Y") | i.equals("y")) {
 				Artikel.printWaren();
-				k3.addToWarenkorb();
+				k1.addToWarenkorb();
 				OUTER: while (true) {
 					System.out.println(
 							"Was möchten Sie tun?\n(a) Artikel hinzufügen\n(b) Anzahl der Artikel im Warenkorb ändern\n(c) Warenkorb anzeigen\n(d) Sortiment anzeigen\n(e) Meine Daten ändern\n(f) Zur Kasse gehen \n(g) Bestellvorgang abbrechen");
 					String f = scanner.nextLine();
 					switch (f) {
-					case "a" -> {
-						k3.addToWarenkorb();
+					case "a" -> { // Hinzufügen
+						k1.addToWarenkorb();
 						continue;
 					}
-					case "b" -> {
-						k3.changeAnzahl();
+					case "b" -> { // Anzahl ändern
+						k1.changeAnzahl();
 						continue;
 					}
-					case "c" -> {
-						if (k3.getWarenkorb().getTotal() > 0) {
-							if (k3.warenkorbShowAndConfig() == true) {
+					case "c" -> { // Warenkorb anzeigen
+						if (k1.getWarenkorb().getTotal() > 0) {
+							if (k1.warenkorbShowAndConfig() == true) {
 								continue;
 							} else {
 								break OUTER;
 							}
-						} else {
+						} else { // Warenkorb anzeigen -> ist leer
 							System.out.println("Ihr Warenkorb ist leer!");
 							continue;
 						}
 					}
-					case "d" -> {
+					case "d" -> { // Sortiment anzeigen
 						Artikel.printWaren();
 						continue;
 					}
-					case "e" -> {
-						Kunde.changeDaten(k3);
+					case "e" -> { // Kundendaten ändern
+						Kunde.changeDaten(k1);
 						continue;
 					}
 
-					case "f" -> {
-						k3.endBestellung();
+					case "f" -> { // Bestellung abschließen
+						k1.endBestellung();
 						break OUTER;
 					}
-					case "g" -> {
+					case "g" -> { // Bestellung abbrechen
 						System.out.println("Bestellungvorgang abgebrochen.");
 						break OUTER;
 					}
-					default -> {
+					default -> { // Ungültige Eingabe
 						System.out.println(Fehler);
 						continue;
 					}
-					}
+					} // Ende switch
 				}
-			} else if (!i.equals("N") && !i.equals("n")) {
+			} // Ende großes if
+			else if (!i.equals("N") && !i.equals("n")) { // Ungültige Eingabe, ablehnen
 				System.out.println(Fehler);
 			}
+			// Beginn End-Dialog
 			INNER: while (running = true) {
-				System.out.println("(a) Neuer Kunde (b) Exit");
+				System.out.println("(a) Neu (b) Exit");
 				String Ende = scanner.nextLine();
 				switch (Ende) {
-				case ("b") -> {
+				case ("a") -> { // Neuen Login-Vorgang starten
+					break INNER;
+				}
+				case ("b") -> { // Exit: Programm beenden
 					System.out.println("Auf Wiedersehen.");
 					running = false;
 					break INNER;
 				}
-				case ("a") -> {
-					running = true;
-					break INNER;
-				}
-				default -> {
+				default -> { // Ungültige Eingabe
 					System.out.println(Fehler);
 					continue;
 				}
 				}
-			}
-		}
+			} // Ende End-Dialog
+		} // Ende großer while-Loop
 		scanner.close();
 	}
 }
