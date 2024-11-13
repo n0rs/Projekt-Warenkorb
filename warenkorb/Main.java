@@ -73,7 +73,7 @@ public class Main {
 			} else if (!i.equals("N") && !i.equals("n")) {
 				System.out.println(Fehler);
 			}
-			INNER: while (running = true) {
+			INNER: while (running == true) {
 				System.out.println("(a) Neuer Kunde (b) Exit");
 				String Ende = scanner.nextLine();
 				switch (Ende) {
