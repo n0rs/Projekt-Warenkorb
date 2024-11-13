@@ -80,10 +80,8 @@ public class Main {
 				case ("b") -> {
 					System.out.println("Auf Wiedersehen.");
 					running = false;
-					break INNER;
 				}
 				case ("a") -> {
-					running = true;
 					break INNER;
 				}
 				default -> {
