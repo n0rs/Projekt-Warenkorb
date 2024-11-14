@@ -11,7 +11,7 @@ public class Main {
 		Scanner scanner = new Scanner(System.in);
 		Artikel.initiateWaren();
 		String Fehler = "Ungültige Eingabe. Bitte versuchen Sie es erneut.";
-		ArrayList<Kunde> Kundenliste = new ArrayList<Kunde>();
+		ArrayList<Kunde> Kundenliste = new ArrayList<>();
 		Kunde k1 = new Kunde("", "", "", "");
 
 		// begin the program
@@ -39,7 +39,7 @@ public class Main {
 					// Neustart Login Vorgang
 					System.out.println("Daten nicht vorhanden. Versuchen Sie es erneut.");
 					scanner.nextLine();
-					continue INNER;
+					continue;
 				}
 				default -> { // Fall: Neuer Kunde
 					k1 = Kunde.kundenKontoErstellen();
@@ -51,7 +51,7 @@ public class Main {
 					}
 				}
 				}
-				break INNER;
+				break;
 			} // Ende Login-Vorgang
 
 			// Beginn Einkauf
