@@ -132,10 +132,9 @@ public class Warenkorb {
 				StringBuilder s2 = new StringBuilder();
 				for (Artikel artikel : Artikel.waren) {
 					if (Collections.frequency(warenkorb, artikel) >= 1) {
-						s2.append(artikel.toString() + "; Anzahl: " + Collections.frequency(warenkorb, artikel))
+						s2.append(artikel.toString()).append("; Anzahl: ").append(Collections.frequency(warenkorb, artikel))
 								.append("\n");
 					} else {
-						continue;
 					}
 				}
 				return s2.toString() + lineSep() + "Total: " + getTotal() + " €" + "\nVersand: " + calcShipping()
