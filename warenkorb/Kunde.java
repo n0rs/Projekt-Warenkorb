@@ -12,7 +12,7 @@ public class Kunde {
 	private String nachName;
 	// Counter wird benutzt um kundenNummer bei jedem Aufrufen des Konstruktors um 1
 	// zu erhöhen
-	private static int counter = 1;
+	private static int counter = 0;
 	// Scanner object erstellen
 
 	// Konstruktor
@@ -42,6 +42,7 @@ public class Kunde {
 		System.out.println("Rechnungsadresse:");
 		String kAdresse = scanner.nextLine();
 		k = new Kunde(kVorName, kNachname, lAdresse, kAdresse);
+
 		return k;
 	}
 
