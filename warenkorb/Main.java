@@ -114,7 +114,7 @@ public class Main {
 				System.out.println(Fehler);
 			}
 
-			INNER: while (running == true) {
+			INNER2: while (running == true) {
 				System.out.println("(a) Neuer Kunde (b) Exit");
 				String Ende = scanner.nextLine();
 				switch (Ende) {
@@ -123,7 +123,7 @@ public class Main {
 					running = false;
 				}
 				case ("a") -> {
-					break INNER;
+					break INNER2;
 				}
 				default -> { // Ungültige Eingabe
 					System.out.println(Fehler);
