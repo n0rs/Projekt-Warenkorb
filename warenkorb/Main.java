@@ -1,6 +1,5 @@
 package warenkorb;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -11,7 +10,6 @@ public class Main {
 		Scanner scanner = new Scanner(System.in);
 		Artikel.initiateWaren();
 		String Fehler = "Ungültige Eingabe. Bitte versuchen Sie es erneut.";
-		ArrayList<Kunde> Kundenliste = new ArrayList<>();
 		Kunde k1 = new Kunde("", "", "", "");
 
 		// begin the program
@@ -27,9 +25,9 @@ public class Main {
 					System.out.println("Ihre Kundennummer: ");
 					int Knr = scanner.nextInt();
 
-					for (int i = 0; i < Kundenliste.size(); i++) {
-						if (Kundenliste.get(i).getKundenNummer() == Knr) {
-							k1 = Kundenliste.get(i);
+					for (int i = 0; i < Kunde.Kundenliste.size(); i++) {
+						if (Kunde.Kundenliste.get(i).getKundenNummer() == Knr) {
+							k1 = Kunde.Kundenliste.get(i);
 							System.out.println("Willkommen, " + k1.getVorName() + "!");
 							scanner.nextLine();
 							break INNER;
@@ -43,12 +41,6 @@ public class Main {
 				}
 				default -> { // Fall: Neuer Kunde
 					k1 = Kunde.kundenKontoErstellen();
-					System.out.println("Kundendaten speichern? Y/N"); // Speicher-Dialog
-					String speich = scanner.nextLine();
-					if (speich.equals("Y") | speich.equals("y")) {
-						Kundenliste.add(k1);
-						System.out.print("Daten gespeichert. Kundennummer: " + k1.getKundenNummer() + "\n");
-					}
 				}
 				}
 				break;

@@ -16,7 +16,6 @@ public class Warenkorb {
 
 	// fügt Artikel zum Warenkorb hinzu
 	public void addWaren(Artikel artikel, int addAnzahl) {
-
 		if (warenkorb.size() + addAnzahl <= 100 && addAnzahl > 0) {
 			while (addAnzahl > 0) {
 				warenkorb.add(artikel);
