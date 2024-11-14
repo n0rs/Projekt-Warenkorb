@@ -113,17 +113,16 @@ public class Main {
 			else if (!i.equals("N") && !i.equals("n")) { // Ungültige Eingabe, ablehnen
 				System.out.println(Fehler);
 			}
-			// Beginn End-Dialog
-			INNER: while (running = true) {
-				System.out.println("(a) Neu (b) Exit");
+
+			INNER: while (running == true) {
+				System.out.println("(a) Neuer Kunde (b) Exit");
 				String Ende = scanner.nextLine();
 				switch (Ende) {
-				case ("a") -> { // Neuen Login-Vorgang starten
-					break INNER;
-				}
-				case ("b") -> { // Exit: Programm beenden
+				case ("b") -> {
 					System.out.println("Auf Wiedersehen.");
 					running = false;
+				}
+				case ("a") -> {
 					break INNER;
 				}
 				default -> { // Ungültige Eingabe
