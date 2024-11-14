@@ -10,7 +10,7 @@ public class Main {
 		Scanner scanner = new Scanner(System.in);
 		Artikel.initiateWaren();
 		String Fehler = "Ungültige Eingabe. Bitte versuchen Sie es erneut.";
-		Kunde k1 = new Kunde("", "", "", "");
+		Kunde k = new Kunde("", "", "", "");
 
 		// begin the program
 		while (running == true) {
@@ -27,8 +27,8 @@ public class Main {
 
 					for (int i = 0; i < Kunde.Kundenliste.size(); i++) {
 						if (Kunde.Kundenliste.get(i).getKundenNummer() == Knr) {
-							k1 = Kunde.Kundenliste.get(i);
-							System.out.println("Willkommen, " + k1.getVorName() + "!");
+							k = Kunde.Kundenliste.get(i);
+							System.out.println("Willkommen, " + k.getVorName() + "!");
 							scanner.nextLine();
 							break INNER;
 							// Kundennummer ist vorhanden
@@ -40,7 +40,7 @@ public class Main {
 					continue;
 				}
 				default -> { // Fall: Neuer Kunde
-					k1 = Kunde.kundenKontoErstellen();
+					k = Kunde.kundenKontoErstellen();
 				}
 				}
 				break;
@@ -52,23 +52,23 @@ public class Main {
 			String i = scanner.nextLine();
 			if (i.equals("Y") | i.equals("y")) {
 				Artikel.printWaren();
-				k1.addToWarenkorb();
+				k.addToWarenkorb();
 				OUTER: while (true) {
 					System.out.println(
 							"Was möchten Sie tun?\n(a) Artikel hinzufügen\n(b) Anzahl der Artikel im Warenkorb ändern\n(c) Warenkorb anzeigen\n(d) Sortiment anzeigen\n(e) Meine Daten ändern\n(f) Zur Kasse gehen \n(g) Bestellvorgang abbrechen");
 					String f = scanner.nextLine();
 					switch (f) {
 					case "a" -> { // Hinzufügen
-						k1.addToWarenkorb();
+						k.addToWarenkorb();
 						continue;
 					}
 					case "b" -> { // Anzahl ändern
-						k1.changeAnzahl();
+						k.changeAnzahl();
 						continue;
 					}
 					case "c" -> { // Warenkorb anzeigen
-						if (k1.getWarenkorb().getTotal() > 0) {
-							if (k1.warenkorbShowAndConfig() == true) {
+						if (k.getWarenkorb().getTotal() > 0) {
+							if (k.warenkorbShowAndConfig() == true) {
 								continue;
 							} else {
 								break OUTER;
@@ -83,12 +83,12 @@ public class Main {
 						continue;
 					}
 					case "e" -> { // Kundendaten ändern
-						Kunde.changeDaten(k1);
+						Kunde.changeDaten(k);
 						continue;
 					}
 
 					case "f" -> { // Bestellung abschließen
-						k1.endBestellung();
+						k.endBestellung();
 						break OUTER;
 					}
 					case "g" -> { // Bestellung abbrechen
