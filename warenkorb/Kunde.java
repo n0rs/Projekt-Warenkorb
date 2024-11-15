@@ -166,7 +166,7 @@ public class Kunde {
 		return warenkorb.calcShipping();
 	}
 
-	// um Bestellbestätigung einfacher zu printen
+	// um Bestellbestätigung schöner zu printen
 	public String lineSep() {
 		return "\n-----------------------------------";
 	}
