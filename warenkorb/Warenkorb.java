@@ -62,38 +62,35 @@ public class Warenkorb {
 	// Artikel
 	public void changeAnzahlW(Artikel artikel, int Anzahl) {
 
-		// Überprüfung max. Anzahl
-		if (((warenkorb.size() - Collections.frequency(warenkorb, artikel)) + Anzahl <= 100 && Anzahl >= 0)
-				| (warenkorb.size() + Anzahl <= 100 && Anzahl >= 0)) {
+		int aktlAnzahl = Collections.frequency(warenkorb, artikel);
+		int wsize = warenkorb.size();
+		String ChangeComplete = "Anzahl \"" + artikel.getArtikelBezeichnung() + "\" auf \"" + Anzahl + "\" geändert.";
+		int diffs = Anzahl - aktlAnzahl;
 
+		if (((wsize - aktlAnzahl) + Anzahl <= 100 && Anzahl > 0) | (wsize + Anzahl <= 100 && Anzahl > 0)) {
 			if (Anzahl == 0) { // Anzahl 0 = Artikel werden entfernt
 				removeallArtikelx(artikel);
-			} else if (Anzahl > Collections.frequency(warenkorb, artikel)) { // Anzahl erhöhen
-				int diff = Anzahl - Collections.frequency(warenkorb, artikel);
-				while (diff > 0) {
+			} else {
+			// Anzahl erhöhen
+				while (diffs > 0) {
 					warenkorb.add(artikel);
-					diff--;
+					diffs--;
 				}
-				System.out
-						.println("Anzahl \"" + artikel.getArtikelBezeichnung() + "\" auf \"" + Anzahl + "\" geändert.");
-			} else if (Anzahl < Collections.frequency(warenkorb, artikel)) { // Anzahl verringern
-				int diff = Collections.frequency(warenkorb, artikel) - Anzahl;
-				while (diff > 0) {
+				 // Anzahl verringern
+				while (diffs < 0) {
 					warenkorb.remove(artikel);
-					diff--;
+					diffs++;}
+					
+					System.out.println(ChangeComplete);
 				}
-				System.out
-						.println("Anzahl \"" + artikel.getArtikelBezeichnung() + "\" auf \"" + Anzahl + "\" geändert.");
-			} else if (Anzahl == Collections.frequency(warenkorb, artikel)) { // Anzahl entspricht vorhandener Anzahl
+			} else if (diffs == 0) { // Anzahl entspricht vorhandener Anzahl
 				System.out.println(
 						"Hinweis: '" + artikel.getArtikelBezeichnung() + "' ist bereits " + Anzahl + "-mal vorhanden.");
 			}
-
-		} else if (Anzahl < 0) { // Fall: negative/ungültige Eingabe
-			System.out.println("Ungültige Eingabe. Anzahl darf keinen negativen Wert haben.");
+		 else if (Anzahl < 0) { // Fall: negative/ungültige Eingabe
+			System.out.println("Ungültige Eingabe. Bitte versuchen Sie es erneut");
 		} else { // Fall: über 100 Artikel
-			System.out.println(
-					"Warenkorb fasst max. 100 Artikel. Ihr aktueller Warenkorb: " + warenkorb.size() + " Elemente.");
+			System.out.println("Warenkorb fasst max. 100 Artikel. Ihr aktueller Warenkorb: " + wsize + " Elemente.");
 		}
 	}
 
@@ -131,8 +128,8 @@ public class Warenkorb {
 				StringBuilder s2 = new StringBuilder();
 				for (Artikel artikel : Artikel.waren) {
 					if (Collections.frequency(warenkorb, artikel) >= 1) {
-						s2.append(artikel.toString()).append("; Anzahl: ").append(Collections.frequency(warenkorb, artikel))
-								.append("\n");
+						s2.append(artikel.toString()).append("; Anzahl: ")
+								.append(Collections.frequency(warenkorb, artikel)).append("\n");
 					} else {
 					}
 				}
