@@ -17,6 +17,8 @@ public class Kunde {
 	// zu erhöhen
 	private static int counter = 0;
 	// Scanner object erstellen
+	private static final Scanner scanner = new Scanner(System.in);
+
 
 	// Konstruktor
 	public Kunde(String vorName, String nachName, String lieferAdresse, String rechnungsAdresse) {
@@ -32,9 +34,9 @@ public class Kunde {
 	}
 
 	public static Kunde kundenKontoErstellen() {
-		Kunde k;
-		Scanner scanner = new Scanner(System.in);
 		// Kundenkonto erstellen
+		Kunde k;
+		
 		System.out.println("Bitte erstellen Sie Ihr Kundenkonto.");
 		System.out.println("Nachname:");
 		String kNachname = scanner.nextLine();
@@ -57,21 +59,20 @@ public class Kunde {
 	public static Kunde changeDaten(Kunde k) {
 		System.out.println(k.toString());
 		System.out.println("\nWelche Daten möchten Sie ändern?\n(1) Lieferadresse\n(2) Rechnungsadresse");
-		Scanner scannerD = new Scanner(System.in);
-		if (scannerD.hasNextInt()) {
-			int auswahl = scannerD.nextInt();
+		if (scanner.hasNextInt()) {
+			int auswahl = scanner.nextInt();
 			switch (auswahl) {
 			case 2 -> {
 				System.out.println("Geben Sie Ihre neue Rechnungsadresse ein:");
-				scannerD.nextLine();
-				String newAdressR = scannerD.nextLine();
+				scanner.nextLine();
+				String newAdressR = scanner.nextLine();
 				k.setRechnungsAdresse(newAdressR);
 				System.out.println("Adresse geändert.\n");
 			}
 			case 1 -> {
 				System.out.println("Geben Sie Ihre neue Lieferadresse ein:");
-				scannerD.nextLine();
-				String newAdressL = scannerD.nextLine();
+				scanner.nextLine();
+				String newAdressL = scanner.nextLine();
 				k.setLieferAdresse(newAdressL);
 				System.out.println("Adresse geändert.\n");
 			}
@@ -90,10 +91,8 @@ public class Kunde {
 
 		System.out.println(getWarenkorb() + lineSep() + "\n(1) Warenkorb leeren" + "   " + "(2) Bestellung abbrechen"
 				+ "   " + "(3) Zur Kasse gehen" + "   (4) Einkauf fortsetzen");
-
-		Scanner scannerC = new Scanner(System.in);
-		if (scannerC.hasNextInt()) {
-			int auswahl = scannerC.nextInt();
+		if (scanner.hasNextInt()) {
+			int auswahl = scanner.nextInt();
 			switch (auswahl) {
 			case 1 -> {
 				warenkorb.clearWaren();
@@ -122,7 +121,6 @@ public class Kunde {
 	public void addToWarenkorb() {
 		System.out.println(
 				"Bitte fügen Sie jetzt etwas Ihrem Warenkorb hinzu.\nGeben Sie die Artikelnummer und die Anzahl an, die Sie hinzufügen möchten.");
-		Scanner scanner = new Scanner(System.in);
 		if (scanner.hasNextInt()) {
 			Artikel artikel = Artikel.waren.get(scanner.nextInt() - 1);
 			System.out.println("Anzahl: ");
@@ -141,7 +139,6 @@ public class Kunde {
 	public void changeAnzahl() {
 		System.out.println(
 				"Ändern Sie die Anzahl eines Artikels durch Eingabe der Artikelnummer und der gewünschten neuen Anzahl.");
-		Scanner scanner = new Scanner(System.in);
 		if (scanner.hasNextInt()) {
 			Artikel artikel = Artikel.waren.get(scanner.nextInt() - 1);
 			System.out.println("Anzahl: ");
