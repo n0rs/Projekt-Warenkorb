@@ -1,6 +1,7 @@
 package warenkorb;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Kunde {
@@ -57,7 +58,7 @@ public class Kunde {
 	}
 
 	public static Kunde changeDaten(Kunde k) {
-		System.out.println(k.toString());
+		System.out.println(k);
 		System.out.println("\nWelche Daten möchten Sie ändern?\n(1) Lieferadresse\n(2) Rechnungsadresse");
 		if (scanner.hasNextInt()) {
 			int auswahl = scanner.nextInt();
@@ -137,26 +138,42 @@ public class Kunde {
 
 	// Aufruf Warenkorb.changeAnzahlW Methode
 	public void changeAnzahl() {
-		System.out.println(
-				"Ändern Sie die Anzahl eines Artikels durch Eingabe der Artikelnummer und der gewünschten neuen Anzahl.");
+		System.out.println("Bitte geben Sie die Artikelnummer ein und anschließend die gewünschte Anzahl:");
+
+    try {
+        int artikelNummer = scanner.nextInt();
+        Artikel artikel = Artikel.waren.get(artikelNummer - 1);
+
+        System.out.print("Neue Anzahl: ");
+        int anzahl = scanner.nextInt();
+
+        warenkorb.changeAnzahlW(artikel, anzahl);
+    } catch (InputMismatchException | IndexOutOfBoundsException e) {
+        System.out.println("Ungültige Eingabe. Bitte versuchen Sie es erneut.\n");
+        scanner.nextLine(); // Scanner-Fehler durch ungültige Eingabe zurücksetzen
+    }
+}
+	/* System.out.println(
+			"Ändern Sie die Anzahl eines Artikels durch Eingabe der Artikelnummer und der gewünschten neuen Anzahl.");
+	if (scanner.hasNextInt()) {
+		Artikel artikel = Artikel.waren.get(scanner.nextInt() - 1);
+		System.out.println("Anzahl: ");
 		if (scanner.hasNextInt()) {
-			Artikel artikel = Artikel.waren.get(scanner.nextInt() - 1);
-			System.out.println("Anzahl: ");
-			if (scanner.hasNextInt()) {
-				int Anzahl = scanner.nextInt();
-				warenkorb.changeAnzahlW(artikel, Anzahl);
-			} else {
-				System.out.println("Untültige Eingabe. Bitte versuchen Sie es erneut.\n");
-			}
+			int Anzahl = scanner.nextInt();
+			warenkorb.changeAnzahlW(artikel, Anzahl);
 		} else {
-			System.out.println("Ungültige Eingabe. Bitte versuchen Sie es erneut.\n");
+			System.out.println("Untültige Eingabe. Bitte versuchen Sie es erneut.\n");
 		}
+	} else {
+		System.out.println("Ungültige Eingabe. Bitte versuchen Sie es erneut.\n");
+	}
 	}
 
 	// Aufruf Warenkorb.clearWaren Methode
 	public void clearWarenkorb() {
 		warenkorb.clearWaren();
-	}
+	}*/
+	
 
 	// Aufruf Warenkorb.calcShipping Methode
 	public double prizeShipping() {
