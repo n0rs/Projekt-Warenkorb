@@ -16,6 +16,25 @@ public class Warenkorb {
 
 	// fügt Artikel zum Warenkorb hinzu
 	public void addWaren(Artikel artikel, int addAnzahl) {
+
+		if (addAnzahl <= 0) {
+			System.out.println("Ungültige Eingabe. Anzahl muss größer als 0 sein.\n");
+			return;
+		}
+	
+		if (warenkorb.size() + addAnzahl > 100) {
+			System.out.println("Warenkorb fasst max. 100 Artikel. Ihr aktueller Warenkorb: " + warenkorb.size() + " Elemente.\n");
+			return;
+		}
+	
+		// Fügen Sie die Artikel effizient in einem Schritt hinzu
+		for (int i = 0; i < addAnzahl; i++) {
+			warenkorb.add(artikel);
+		}
+	
+		System.out.println("Artikel hinzugefügt.\n" + lineSep());
+
+		/* 
 		if (warenkorb.size() + addAnzahl <= 100 && addAnzahl > 0) {
 			while (addAnzahl > 0) {
 				warenkorb.add(artikel);
@@ -27,7 +46,7 @@ public class Warenkorb {
 		} else {
 			System.out.println(
 					"Warenkorb fasst max. 100 Artikel. Ihr aktueller Warenkorb: " + warenkorb.size() + " Elemente.\n");
-		}
+		}*/
 	}
 
 	// berechnet den Gesamtpreis der Artikel im Warenkorb
