@@ -16,7 +16,7 @@ public class Kunde {
 	private String nachName;
 	// Counter wird benutzt um kundenNummer bei jedem Aufrufen des Konstruktors um 1
 	// zu erhöhen
-	private static int counter = 0;
+	private static int counter = 1;
 	// Scanner object erstellen
 	private static final Scanner scanner = new Scanner(System.in);
 
@@ -49,8 +49,8 @@ public class Kunde {
 		String kAdresse = scanner.nextLine();
 		k = new Kunde(kVorName, kNachname, lAdresse, kAdresse);
 		System.out.println("Kundendaten speichern? Y/N"); // Speicher-Dialog
-		String speich = scanner.nextLine();
-		if (speich.equals("Y") | speich.equals("y")) {
+		String save = scanner.nextLine().toLowerCase();
+		if (save.equals("y")) {
 			Kundenliste.add(k);
 			System.out.print("Daten gespeichert. Kundennummer: " + k.getKundenNummer() + "\n");
 		}
