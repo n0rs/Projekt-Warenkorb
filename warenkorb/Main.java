@@ -75,7 +75,7 @@ public class Main {
             while (true) {
                 System.out.println("""
                                    Was möchten Sie tun?
-                                   (a) Artikel hinzufügen
+                                   (a) Artikel hinzufügen/entfernen
                                    (b) Anzahl der Artikel im Warenkorb ändern
                                    (c) Warenkorb anzeigen
                                    (d) Sortiment anzeigen
@@ -86,7 +86,7 @@ public class Main {
                     String auswahl = scanner.nextLine();
 
                     switch (auswahl) {
-                        case "a" -> k.addToWarenkorb();
+                        case "a" -> k.changeAnzahl();
                         case "b" -> k.changeAnzahl();
                         case "c" -> {
                             if (k.getWarenkorb().getTotal() > 0) {
