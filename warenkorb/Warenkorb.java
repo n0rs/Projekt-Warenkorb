@@ -135,7 +135,8 @@ public class Warenkorb {
 	
 		sb.append(lineSep())
 		  .append("Total: ").append(getTotal()).append(" €")
-		  .append("\nVersand: ").append(calcShipping()).append(" €").append("\nSumme: ").append(calcSumme()).append(" €");
+		  .append("\nVersand: ").append(calcShipping()).append(" €")
+		  .append("\nSumme: ").append(calcSumme()).append(" €");
 		return sb.toString();
 	}
 
