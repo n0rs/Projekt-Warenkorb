@@ -116,24 +116,25 @@ public class Kunde {
 		return k;*/
 	}
 
-	public boolean warenkorbShowAndConfig() {
+	public boolean warenkorbShowAndNavi() {
 
-		System.out.println(getWarenkorb() + lineSep() + "\n(1) Warenkorb leeren" + "   " + "(2) Bestellung abbrechen"
-				+ "   " + "(3) Zur Kasse gehen" + "   (4) Einkauf fortsetzen");
+		System.out.println(getWarenkorb() + lineSep() + "\n(a) Warenkorb leeren" + "   " + "(b) Bestellung abbrechen"
+				+ "   " + "(c) Zur Kasse gehen" + "   (d) Einkauf fortsetzen");
 
 		try {
-			int auswahl = scanner.nextInt();
+			scanner.nextLine();
+			String auswahl = scanner.nextLine();
 			switch (auswahl) {
-			case 1 -> {
+			case "a" -> {
 				warenkorb.clearWaren();
 				System.out.println("Warenkorb geleert.");
 				return true;
 			}
-			case 2 -> {
+			case "b" -> {
 				System.out.println("Bestellung abgebrochen.");
 				return false;
 			}
-			case 3 -> {
+			case "c" -> {
 				endBestellung();
 				return false;
 			}
