@@ -113,7 +113,7 @@ public class Kunde {
 			System.out.println("Bitte versuchen Sie es erneut");
 		}
 		// scannerD.close();
-		return k;*/
+		return k;*/ //testtestsetestejsejkrs
 	}
 
 	public boolean warenkorbShowAndNavi() {
