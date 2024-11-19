@@ -42,6 +42,12 @@ public class Warenkorb {
 		}
 	}
 
+	public double calcSumme() {
+
+		double summe = getTotal() + calcShipping();
+		return Math.round(100.0 * summe) / 100.0;
+	}
+
 	// verändert die Anzahl eines Artikels im Warenkorb, berücksichtigt vorhandene
 	// Artikel
 	public void changeAnzahlW(Artikel artikel, int Anzahl) {
@@ -119,12 +125,17 @@ public class Warenkorb {
 		StringBuilder sb = new StringBuilder();
 
 		// Zusammengefasste Ausgabe
-		Artikel.waren.stream().filter(artikel -> Collections.frequency(warenkorb, artikel) > 0).forEach(artikel -> sb
-				.append(artikel).append("; Anzahl: ").append(Collections.frequency(warenkorb, artikel)).append("\n"));
-
-		sb.append(lineSep()).append("Total: ").append(getTotal()).append(" €").append("\nVersand: ")
-				.append(calcShipping()).append(" €");
-
+		Artikel.waren.stream()
+				.filter(artikel -> Collections.frequency(warenkorb, artikel) > 0)
+				.forEach(artikel -> sb.append(artikel)
+						.append("; Anzahl: ")
+						.append(Collections.frequency(warenkorb, artikel))
+						.append("\n"));
+		
+	
+		sb.append(lineSep())
+		  .append("Total: ").append(getTotal()).append(" €")
+		  .append("\nVersand: ").append(calcShipping()).append(" €").append("\nSumme: ").append(calcSumme()).append(" €");
 		return sb.toString();
 	}
 
