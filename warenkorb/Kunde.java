@@ -20,7 +20,6 @@ public class Kunde {
 	// Scanner object erstellen
 	private static final Scanner scanner = new Scanner(System.in);
 
-
 	// Konstruktor
 	public Kunde(String vorName, String nachName, String lieferAdresse, String rechnungsAdresse) {
 		kundenNummer = counter++;
@@ -29,6 +28,7 @@ public class Kunde {
 		this.lieferAdresse = lieferAdresse;
 		this.rechnungsAdresse = rechnungsAdresse;
 		this.warenkorb = new Warenkorb();
+
 		// kundenNummer und warenkorb als sich ändernde Objekte
 		// eventuell müssen wir die Lieferadresse auch so behandeln, wenn wir die ändern
 		// wollen
@@ -37,7 +37,7 @@ public class Kunde {
 	public static Kunde kundenKontoErstellen() {
 		// Kundenkonto erstellen
 		Kunde k;
-		
+
 		System.out.println("Bitte erstellen Sie Ihr Kundenkonto.");
 		System.out.println("Nachname:");
 		String kNachname = scanner.nextLine();
@@ -84,36 +84,9 @@ public class Kunde {
 			}
 		} catch (InputMismatchException | IndexOutOfBoundsException e) {
 			System.out.println("Ungültige Eingabe. Bitte versuchen Sie es erneut.\n");
-        	scanner.nextLine(); // Scanner-Fehler durch ungültige Eingabe zurücksetzen
+			scanner.nextLine(); // Scanner-Fehler durch ungültige Eingabe zurücksetzen
 		}
 		return k;
-		/* 
-		if (scanner.hasNextInt()) {
-			int auswahl = scanner.nextInt();
-			switch (auswahl) {
-			case 2 -> {
-				System.out.println("Geben Sie Ihre neue Rechnungsadresse ein:");
-				scanner.nextLine();
-				String newAdressR = scanner.nextLine();
-				k.setRechnungsAdresse(newAdressR);
-				System.out.println("Adresse geändert.\n");
-			}
-			case 1 -> {
-				System.out.println("Geben Sie Ihre neue Lieferadresse ein:");
-				scanner.nextLine();
-				String newAdressL = scanner.nextLine();
-				k.setLieferAdresse(newAdressL);
-				System.out.println("Adresse geändert.\n");
-			}
-			default -> {
-				return k;
-			}
-			}
-		} else {
-			System.out.println("Bitte versuchen Sie es erneut");
-		}
-		// scannerD.close();
-		return k;*/ //testtestsetestejsejkrs
 	}
 
 	public boolean warenkorbShowAndNavi() {
@@ -140,11 +113,11 @@ public class Kunde {
 			default -> {
 				return true;
 			}
+			}
+		} catch (InputMismatchException | IndexOutOfBoundsException e) {
+			System.out.println("Ungültige Eingabe. Bitte versuchen Sie es erneut.\n");
+			scanner.nextLine(); // Scanner-Fehler durch ungültige Eingabe zurücksetzen
 		}
-	} catch (InputMismatchException | IndexOutOfBoundsException e) {
-		System.out.println("Ungültige Eingabe. Bitte versuchen Sie es erneut.\n");
-        scanner.nextLine(); // Scanner-Fehler durch ungültige Eingabe zurücksetzen
-	}
 		return true;
 	}
 
@@ -152,42 +125,26 @@ public class Kunde {
 	public void changeAnzahl() {
 		System.out.println("Bitte geben Sie die Artikelnummer und anschließend die gewünschte Anzahl an:");
 
-    try {
-    	System.out.println("Nr: ");
-        int artikelNummer = scanner.nextInt();
-        Artikel artikel = Artikel.waren.get(artikelNummer - 1);
+		try {
+			System.out.println("Nr: ");
+			int artikelNummer = scanner.nextInt();
+			Artikel artikel = Artikel.waren.get(artikelNummer - 1);
 
-        System.out.print("Neue Anzahl: ");
-        int anzahl = scanner.nextInt();
+			System.out.print("Neue Anzahl: ");
+			int anzahl = scanner.nextInt();
 
-        warenkorb.changeAnzahlW(artikel, anzahl);
-		scanner.nextLine();
-    } catch (InputMismatchException | IndexOutOfBoundsException e) {
-        System.out.println("Ungültige Eingabe. Bitte versuchen Sie es erneut.\n");
-        scanner.nextLine(); // Scanner-Fehler durch ungültige Eingabe zurücksetzen
-    }
-}
-	/* System.out.println(
-			"Ändern Sie die Anzahl eines Artikels durch Eingabe der Artikelnummer und der gewünschten neuen Anzahl.");
-	if (scanner.hasNextInt()) {
-		Artikel artikel = Artikel.waren.get(scanner.nextInt() - 1);
-		System.out.println("Anzahl: ");
-		if (scanner.hasNextInt()) {
-			int Anzahl = scanner.nextInt();
-			warenkorb.changeAnzahlW(artikel, Anzahl);
-		} else {
-			System.out.println("Untültige Eingabe. Bitte versuchen Sie es erneut.\n");
+			warenkorb.changeAnzahlW(artikel, anzahl);
+			scanner.nextLine();
+		} catch (InputMismatchException | IndexOutOfBoundsException e) {
+			System.out.println("Ungültige Eingabe. Bitte versuchen Sie es erneut.\n");
+			scanner.nextLine(); // Scanner-Fehler durch ungültige Eingabe zurücksetzen
 		}
-	} else {
-		System.out.println("Ungültige Eingabe. Bitte versuchen Sie es erneut.\n");
 	}
-	}*/
 
 	// Aufruf Warenkorb.clearWaren Methode
 	public void clearWarenkorb() {
 		warenkorb.clearWaren();
 	}
-	
 
 	// Aufruf Warenkorb.calcShipping Methode
 	public double prizeShipping() {
