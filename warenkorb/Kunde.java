@@ -106,6 +106,7 @@ public class Kunde {
 			}
 			case "b" -> {
 				System.out.println("Bestellung abgebrochen.");
+				clearWarenkorb();
 				return false;
 			}
 			case "c" -> {
