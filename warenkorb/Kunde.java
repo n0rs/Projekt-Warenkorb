@@ -28,6 +28,10 @@ public class Kunde {
 		this.lieferAdresse = lieferAdresse;
 		this.rechnungsAdresse = rechnungsAdresse;
 		this.warenkorb = new Warenkorb();
+
+		// kundenNummer und warenkorb als sich ändernde Objekte
+		// eventuell müssen wir die Lieferadresse auch so behandeln, wenn wir die ändern
+		// wollen
 	}
 
 	public static Kunde kundenKontoErstellen() {
@@ -162,6 +166,7 @@ public class Kunde {
 			System.out.println("\nÜbersicht\n\n" + toString() + lineSep() + "\n" + warenkorb.toString() + lineSep()
 					+ "\nBestellvorgang abgebrochen");
 		}
+		clearWarenkorb();
 	}
 
 	@Override
