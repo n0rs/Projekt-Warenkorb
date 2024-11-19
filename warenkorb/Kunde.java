@@ -75,11 +75,11 @@ public class Kunde {
 				return k;
 			}
 			default -> {
-				System.out.println("Ungültige Eingabe. Bitte versuchen Sie es erneut.");
+				System.err.println("Ungültige Eingabe. Bitte versuchen Sie es erneut.");
 			}
 			}
 		} catch (InputMismatchException | IndexOutOfBoundsException e) {
-			System.out.println("Ungültige Eingabe. Bitte versuchen Sie es erneut.\n");
+			System.err.println("Ungültige Eingabe. Bitte versuchen Sie es erneut.\n");
 			scanner.nextLine(); // Scanner-Fehler durch ungültige Eingabe zurücksetzen
 		}
 		return k;
@@ -111,7 +111,7 @@ public class Kunde {
 			}
 			}
 		} catch (InputMismatchException | IndexOutOfBoundsException e) {
-			System.out.println("Ungültige Eingabe. Bitte versuchen Sie es erneut.\n");
+			System.err.println("Ungültige Eingabe. Bitte versuchen Sie es erneut.\n");
 			scanner.nextLine(); // Scanner-Fehler durch ungültige Eingabe zurücksetzen
 		}
 		return true;
@@ -132,7 +132,7 @@ public class Kunde {
 			warenkorb.changeAnzahlW(artikel, anzahl);
 			scanner.nextLine();
 		} catch (InputMismatchException | IndexOutOfBoundsException e) {
-			System.out.println("Ungültige Eingabe. Bitte versuchen Sie es erneut.\n");
+			System.err.println("Ungültige Eingabe. Bitte versuchen Sie es erneut.\n");
 			scanner.nextLine(); // Scanner-Fehler durch ungültige Eingabe zurücksetzen
 		}
 	}
@@ -159,7 +159,7 @@ public class Kunde {
 			System.out.println("\nÜbersicht\n\n" + toString() + lineSep() + "\n" + warenkorb.toString() + lineSep()
 					+ "\nVielen Dank für Ihre Bestellung!");
 		} else {
-			System.out.println("\nÜbersicht\n\n" + toString() + lineSep() + "\n" + warenkorb.toString() + lineSep()
+			System.err.println("\nÜbersicht\n\n" + toString() + lineSep() + "\n" + warenkorb.toString() + lineSep()
 					+ "\nBestellvorgang abgebrochen");
 		}
 	}
