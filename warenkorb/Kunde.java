@@ -122,7 +122,6 @@ public class Kunde {
 				+ "   " + "(c) Zur Kasse gehen" + "   (d) Einkauf fortsetzen");
 
 		try {
-			scanner.nextLine();
 			String auswahl = scanner.nextLine();
 			switch (auswahl) {
 			case "a" -> {
@@ -149,43 +148,12 @@ public class Kunde {
 		return true;
 	}
 
-	// Aufruf Warenkorb.addWaren Methode
-	public void addToWarenkorb() {
-		System.out.println(
-				"Bitte fügen Sie jetzt etwas Ihrem Warenkorb hinzu.\nGeben Sie die Artikelnummer und die Anzahl an, die Sie hinzufügen möchten.");
-
-		try {
-			Artikel artikel = Artikel.waren.get(scanner.nextInt() - 1);
-			System.out.println("Anzahl: ");
-
-			int addAnzahl = scanner.nextInt();
-			warenkorb.addWaren(artikel, addAnzahl);
-			scanner.nextLine();
-
-		} catch (InputMismatchException | IndexOutOfBoundsException  e) {
-			System.out.println("Ungültige Eingabe. Bitte versuchen Sie es erneut.");
-			scanner.nextLine();
-		}
-		/* 
-		if (scanner.hasNextInt()) {
-			Artikel artikel = Artikel.waren.get(scanner.nextInt() - 1);
-			System.out.println("Anzahl: ");
-			if (scanner.hasNextInt()) {
-				int addAnzahl = scanner.nextInt();
-				warenkorb.addWaren(artikel, addAnzahl);
-			} else {
-				System.out.println("Ungültige Eingabe. Bitte versuchen Sie es erneut.");
-			}
-		} else {
-			System.out.println("Ungültige Eingabe. Bitte versuchen Sie es erneut.");
-		}*/
-	}
-
 	// Aufruf Warenkorb.changeAnzahlW Methode
 	public void changeAnzahl() {
-		System.out.println("Bitte geben Sie die Artikelnummer ein und anschließend die gewünschte Anzahl:");
+		System.out.println("Bitte geben Sie die Artikelnummer und anschließend die gewünschte Anzahl an:");
 
     try {
+    	System.out.println("Nr: ");
         int artikelNummer = scanner.nextInt();
         Artikel artikel = Artikel.waren.get(artikelNummer - 1);
 
