@@ -49,6 +49,7 @@ public class Main {
                         for (Kunde k : Kunde.Kundenliste) {
                             if (k.getKundenNummer() == kundenNummer) {
                                 System.out.println("Willkommen, " + k.getVorName() + "!");
+                                scanner.nextLine();
                                 return k;
                             }
                         }
