@@ -57,7 +57,7 @@ public class Warenkorb {
 
 		// Überprüfung auf ungültige Eingaben
 		if (Anzahl < 0) {
-			System.out.println("Ungültige Eingabe. Bitte versuchen Sie es erneut.");
+			System.err.println("Ungültige Eingabe. Bitte versuchen Sie es erneut.");
 			return;
 		}
 
@@ -70,7 +70,7 @@ public class Warenkorb {
 
 		// Überprüfung, ob die neue Anzahl die Warenkorbbeschränkung überschreitet
 		if (warenkorbGroesse - aktuelleAnzahl + Anzahl > 100) {
-			System.out.println(
+			System.err.println(
 					"Warenkorb fasst max. 100 Artikel. Ihr aktueller Warenkorb: " + warenkorbGroesse + " Elemente.");
 			return;
 		}
@@ -135,7 +135,8 @@ public class Warenkorb {
 	
 		sb.append(lineSep())
 		  .append("Total: ").append(getTotal()).append(" €")
-		  .append("\nVersand: ").append(calcShipping()).append(" €").append("\nSumme: ").append(calcSumme()).append(" €");
+		  .append("\nVersand: ").append(calcShipping()).append(" €")
+		  .append("\nSumme: ").append(calcSumme()).append(" €");
 		return sb.toString();
 	}
 

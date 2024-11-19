@@ -1,8 +1,10 @@
 package warenkorb;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
+
     private static final Scanner scanner = new Scanner(System.in);
     private static final String FEHLER = "Ungültige Eingabe. Bitte versuchen Sie es erneut.";
 
@@ -55,14 +57,14 @@ public class Main {
     
                         System.out.println("Kundennummer nicht gefunden. Bitte versuchen Sie es erneut.");
                     } catch (NumberFormatException e) {
-                        System.out.println(FEHLER);
+                        System.err.println(FEHLER);
                     }
                 }
                 case "a" -> {
                     return Kunde.kundenKontoErstellen();
                 }
                 default -> {
-                    System.out.println(FEHLER);
+                    System.err.println(FEHLER);
                 }
             }
         }
@@ -108,7 +110,7 @@ public class Main {
                             k.clearWarenkorb();
                             return;
                         }
-                        default -> System.out.println(FEHLER);
+                        default -> System.err.println(FEHLER);
                     }
                 }
             }
@@ -126,10 +128,10 @@ public class Main {
                 case "a" -> {
                     return true;
                 }
-                default -> System.out.println(FEHLER);
+                default -> System.err.println(FEHLER);
             }
         }
     }
 }
 
-
+	
