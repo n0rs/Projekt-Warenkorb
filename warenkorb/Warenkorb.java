@@ -77,6 +77,12 @@ public class Warenkorb {
 		}
 	}
 
+	public double calcSumme() {
+
+		double summe = getTotal() + calcShipping();
+		return Math.round(100.0 * summe) / 100.0;
+	}
+
 	// verändert die Anzahl eines Artikels im Warenkorb, berücksichtigt vorhandene
 	// Artikel
 	public void changeAnzahlW(Artikel artikel, int Anzahl) {
@@ -179,7 +185,7 @@ public class Warenkorb {
 		if (warenkorb.isEmpty()) {
 			return "Der Warenkorb ist leer.";
 		}
-	
+
 		warenkorb.sort(Comparator.comparing(Artikel::getArtikelNummer));
 		StringBuilder sb = new StringBuilder();
 
@@ -194,7 +200,7 @@ public class Warenkorb {
 	
 		sb.append(lineSep())
 		  .append("Total: ").append(getTotal()).append(" €")
-		  .append("\nVersand: ").append(calcShipping()).append(" €");
+		  .append("\nVersand: ").append(calcShipping()).append(" €").append("\nSumme: ").append(calcSumme()).append(" €");
 	
 		return sb.toString();
 		/*

@@ -233,6 +233,7 @@ public class Kunde {
 
 	// gibt Bestellbestätigung aus
 	public void endBestellung() {
+
 		if (warenkorb.getTotal() > 0) {
 			System.out.println("\nÜbersicht\n\n" + toString() + lineSep() + "\n" + warenkorb.toString() + lineSep()
 					+ "\nVielen Dank für Ihre Bestellung!");
