@@ -69,16 +69,12 @@ public class Main {
     }
 
     private static void einkaufen(Kunde k) {
-        System.out.println("Möchten Sie sehen, welche Waren wir im Angebot haben? Y/N");
-		String eingabe = scanner.nextLine();
-
-        if (eingabe.equalsIgnoreCase("Y")) {
+        System.out.println("Willkommen, " + k.getVorName() + "! Unser aktuelles Sortiment:\n");
             Artikel.printWaren();
-            k.addToWarenkorb();
 
             while (true) {
                 System.out.println("""
-                                   Was möchten Sie tun?
+                                   \nWas möchten Sie tun?
                                    (a) Artikel hinzufügen
                                    (b) Anzahl der Artikel im Warenkorb ändern
                                    (c) Warenkorb anzeigen
@@ -114,12 +110,8 @@ public class Main {
                         default -> System.out.println(FEHLER);
                     }
                 }
-            } else if (eingabe.equalsIgnoreCase("N")) {
-                System.out.println(FEHLER);
-            } else {
-                System.out.println(FEHLER);
             }
-        }
+        
 
     private static boolean programmEnde() {
         while (true) {
