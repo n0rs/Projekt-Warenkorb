@@ -37,6 +37,7 @@ public class Artikel {
 
 	//zeigt Warensortiment
 	public static void printWaren() {
+		System.out.println("\nDies ist unser aktuelles Sortiment:");
 		// for-each loop, der "Warensortiment" ausgibt
 		System.out.printf("%-15s | %-45s | %-10s%n", "Artikelnummer", "Name", "Preis");
 		for (Artikel artikel : waren) {

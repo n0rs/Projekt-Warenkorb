@@ -72,12 +72,12 @@ public class Main {
     }
 
     private static void einkaufen(Kunde k) {
-        System.out.println("\nWillkommen, " + k.getVorName() + "! Unser aktuelles Sortiment:");
+        System.out.println("\nWillkommen, " + k.getVorName() + "!");
             Artikel.printWaren();
 
             while (true) {
                 System.out.println("""
-                                   Was möchten Sie tun?
+                                   \n Was möchten Sie tun?
                                    (a) Artikel hinzufügen/entfernen
                                    (b) Anzahl der Artikel im Warenkorb ändern
                                    (c) Warenkorb anzeigen
