@@ -105,6 +105,7 @@ public class Main {
                         }
                         case "g" -> {
                             System.out.println("Bestellvorgang abgebrochen.");
+                            k.clearWarenkorb();
                             return;
                         }
                         default -> System.out.println(FEHLER);
