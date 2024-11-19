@@ -59,27 +59,27 @@ public class Kunde {
 
 	public static Kunde changeDaten(Kunde k) {
 		System.out.println(k);
-		System.out.println("\nWelche Daten möchten Sie ändern?\n(1) Lieferadresse\n(2) Rechnungsadresse");
+		System.out.println("\nWelche Daten möchten Sie ändern?\n(a) Rechnungsadresse\n(b) Lieferadresse");
 
 		try {
-			int auswahl = scanner.nextInt();
+			String auswahl = scanner.nextLine();
 			switch (auswahl) {
-			case 2 -> {
+			case "a" -> {
 				System.out.println("Geben Sie Ihre neue Rechnungsadresse ein:");
-				scanner.nextLine();
 				String newAdressR = scanner.nextLine();
 				k.setRechnungsAdresse(newAdressR);
 				System.out.println("Adresse geändert.\n");
+				return k;
 			}
-			case 1 -> {
+			case "b" -> {
 				System.out.println("Geben Sie Ihre neue Lieferadresse ein:");
-				scanner.nextLine();
 				String newAdressL = scanner.nextLine();
 				k.setLieferAdresse(newAdressL);
 				System.out.println("Adresse geändert.\n");
+				return k;
 			}
 			default -> {
-				return k;
+				System.out.println("Ungültige Eingabe. Bitte versuchen Sie es erneut.");
 			}
 			}
 		} catch (InputMismatchException | IndexOutOfBoundsException e) {
