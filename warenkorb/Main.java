@@ -56,7 +56,7 @@ public class Main {
                         }
     
                         System.out.println("Kundennummer nicht gefunden. Bitte versuchen Sie es erneut.");
-                    } catch (NumberFormatException e) {
+                    } catch (InputMismatchException | NumberFormatException e) {
                         System.err.println(FEHLER);
                     }
                 }
