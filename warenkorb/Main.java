@@ -69,12 +69,12 @@ public class Main {
     }
 
     private static void einkaufen(Kunde k) {
-        System.out.println("Willkommen, " + k.getVorName() + "! Unser aktuelles Sortiment:\n");
+        System.out.println("\nWillkommen, " + k.getVorName() + "! Unser aktuelles Sortiment:");
             Artikel.printWaren();
 
             while (true) {
                 System.out.println("""
-                                   \nWas möchten Sie tun?
+                                   Was möchten Sie tun?
                                    (a) Artikel hinzufügen
                                    (b) Anzahl der Artikel im Warenkorb ändern
                                    (c) Warenkorb anzeigen
@@ -90,7 +90,7 @@ public class Main {
                         case "b" -> k.changeAnzahl();
                         case "c" -> {
                             if (k.getWarenkorb().getTotal() > 0) {
-                                if (!k.warenkorbShowAndConfig()) {
+                                if (!k.warenkorbShowAndNavi()) {
                                     return;
                                 }
                             } else {
@@ -115,7 +115,7 @@ public class Main {
 
     private static boolean programmEnde() {
         while (true) {
-            System.out.println("(a) Neuer Kunde (b) Exit");
+            System.out.println("(a) Neu (b) Exit");
             String eingabe = scanner.nextLine();
 
             switch (eingabe) {
