@@ -49,6 +49,8 @@ public class Kunde {
 		if (save.equals("y")) {
 			Kundenliste.add(k);
 			System.out.print("Daten gespeichert. Kundennummer: " + k.getKundenNummer() + "\n");
+		} else {
+			System.out.println("Daten werden nicht gespeichert.");
 		}
 		return k;
 	}
