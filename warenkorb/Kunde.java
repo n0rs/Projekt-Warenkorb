@@ -160,6 +160,7 @@ public class Kunde {
 
 			int addAnzahl = scanner.nextInt();
 			warenkorb.addWaren(artikel, addAnzahl);
+			scanner.nextLine();
 
 		} catch (InputMismatchException | IndexOutOfBoundsException  e) {
 			System.out.println("Ungültige Eingabe. Bitte versuchen Sie es erneut.");
@@ -192,7 +193,7 @@ public class Kunde {
         int anzahl = scanner.nextInt();
 
         warenkorb.changeAnzahlW(artikel, anzahl);
-		
+		scanner.nextLine();
     } catch (InputMismatchException | IndexOutOfBoundsException e) {
         System.out.println("Ungültige Eingabe. Bitte versuchen Sie es erneut.\n");
         scanner.nextLine(); // Scanner-Fehler durch ungültige Eingabe zurücksetzen
