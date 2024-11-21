@@ -47,7 +47,8 @@ public class Main {
                             }
                         }
     
-                        System.out.println("Kundennummer nicht gefunden. Bitte versuchen Sie es erneut.");
+                        System.err.println("Kundennummer nicht gefunden. Bitte versuchen Sie es erneut.");
+                        scanner.nextLine();
                     } catch (InputMismatchException | NumberFormatException e) {
                         System.err.println(FEHLER);
                         scanner.nextLine();
@@ -57,7 +58,7 @@ public class Main {
                     return Kunde.kundenKontoErstellen();
                 }
                 default -> {
-                    System.err.println(FEHLER);
+                   System.err.println(FEHLER);
                 }
             }
         }

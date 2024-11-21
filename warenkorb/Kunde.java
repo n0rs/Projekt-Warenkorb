@@ -132,7 +132,7 @@ public class Kunde {
 		System.out.println("Bitte geben Sie die Artikelnummer und anschließend die gewünschte Anzahl an:");
 
 		try {
-			System.out.println("Nr: ");
+			System.out.println("Artikelnr.: ");
 			int artikelNummer = scanner.nextInt();
 			Artikel artikel = Artikel.waren.get(artikelNummer - 1);
 
