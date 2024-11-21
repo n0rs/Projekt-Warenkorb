@@ -17,15 +17,8 @@ public class Main {
             System.out.println("Willkommen in Ihrem Herr der Ringe Fanshop. Wir wünschen viel Spaß und gutes Shopping!");
             
             while (running) {
-                Kunde k = loginVorgang();   
-                
-                if (k == null) { // Kunde nicht gefunden oder Anmeldung abgebrochen
-                    System.out.println("Auf Wiedersehen.");
-                    break; // Schleife beenden und Programm beenden
-                }
-            
+                Kunde k = loginVorgang();               
                 einkaufen(k);
-                
                 if (programmEnde() == false) {
                     System.out.println("Auf Wiedersehen.");
                     running = false;
@@ -33,7 +26,6 @@ public class Main {
             }
         }
     }
-
 
     private static Kunde loginVorgang() {
         while (true) {
@@ -116,7 +108,6 @@ public class Main {
                 }
             }
         
-
     private static boolean programmEnde() {
         while (true) {
             System.out.println("(a) Neu (b) Exit");
@@ -134,5 +125,3 @@ public class Main {
         }
     }
 }
-
-	

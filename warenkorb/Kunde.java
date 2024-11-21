@@ -7,6 +7,7 @@ import java.util.Scanner;
 public class Kunde {
 	// Speichert Kundendaten
 	static ArrayList<Kunde> Kundenliste = new ArrayList<>();
+
 	// Attribute
 	private Warenkorb warenkorb;
 	private int kundenNummer;
@@ -14,9 +15,11 @@ public class Kunde {
 	private String rechnungsAdresse;
 	private String vorName;
 	private String nachName;
+	
 	// Counter wird benutzt um kundenNummer bei jedem Aufrufen des Konstruktors um 1
 	// zu erhöhen
 	private static int counter = 1;
+
 	// Scanner object erstellen
 	private static final Scanner scanner = new Scanner(System.in);
 
@@ -33,7 +36,7 @@ public class Kunde {
 		// eventuell müssen wir die Lieferadresse auch so behandeln, wenn wir die ändern
 		// wollen
 	}
-
+	
 	public static Kunde kundenKontoErstellen() {
 		// Kundenkonto erstellen
 		Kunde k;
