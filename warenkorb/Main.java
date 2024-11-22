@@ -85,7 +85,7 @@ public class Main {
                         case "a" -> k.changeAnzahl();
                         case "b" -> k.changeAnzahl();
                         case "c" -> {
-                            if (k.getWarenkorb().getTotal() > 0) {
+                            if (k.getWarenkorb().calcTotal() > 0) {
                                 if (!k.warenkorbShowAndNavi()) {
                                     return;
                                 }

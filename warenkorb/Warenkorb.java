@@ -15,7 +15,7 @@ public class Warenkorb {
 	}
 
 	// berechnet den Gesamtpreis der Artikel im Warenkorb
-	public double getTotal() {
+	public double calcTotal() {
 		// Ich musste hier Math.round benutzen & einmal *100 & /100 rechnen, damit keine
 		// Rundungsfehler rauskommen
 		double total = 0;
@@ -33,9 +33,9 @@ public class Warenkorb {
 		double s2 = 2.95;
 		double s3 = 0.00;
 
-		if (getTotal() <= 20 && getTotal() > 0) {
+		if (calcTotal() <= 20 && calcTotal() > 0) {
 			return s1;
-		} else if (getTotal() > 20 && getTotal() <= 50) {
+		} else if (calcTotal() > 20 && calcTotal() <= 50) {
 			return s2;
 		} else {
 			return s3;
@@ -44,7 +44,7 @@ public class Warenkorb {
 
 	public double calcSumme() {
 
-		double summe = getTotal() + calcShipping();
+		double summe = calcTotal() + calcShipping();
 		return Math.round(100.0 * summe) / 100.0;
 	}
 
@@ -125,18 +125,11 @@ public class Warenkorb {
 		StringBuilder sb = new StringBuilder();
 
 		// Zusammengefasste Ausgabe
-		Artikel.waren.stream()
-				.filter(artikel -> Collections.frequency(warenkorb, artikel) > 0)
-				.forEach(artikel -> sb.append(artikel)
-						.append("; Anzahl: ")
-						.append(Collections.frequency(warenkorb, artikel))
-						.append("\n"));
-		
-	
-		sb.append(lineSep())
-		  .append("Total: ").append(getTotal()).append(" €")
-		  .append("\nVersand: ").append(calcShipping()).append(" €")
-		  .append("\nSumme: ").append(calcSumme()).append(" €");
+		Artikel.waren.stream().filter(artikel -> Collections.frequency(warenkorb, artikel) > 0).forEach(artikel -> sb
+				.append(artikel).append("; Anzahl: ").append(Collections.frequency(warenkorb, artikel)).append("\n"));
+
+		sb.append(lineSep()).append("Total: ").append(calcTotal()).append(" €").append("\nVersand: ")
+				.append(calcShipping()).append(" €").append("\nSumme: ").append(calcSumme()).append(" €");
 		return sb.toString();
 	}
 
