@@ -42,7 +42,7 @@ public class Warenkorb {
 		}
 	}
 
-	public double calcSumme() {
+	public double calcGesamtSumme() {
 
 		double summe = calcTotal() + calcShipping();
 		return Math.round(100.0 * summe) / 100.0;
@@ -129,7 +129,7 @@ public class Warenkorb {
 				.append(artikel).append("; Anzahl: ").append(Collections.frequency(warenkorb, artikel)).append("\n"));
 
 		sb.append(lineSep()).append("Total: ").append(calcTotal()).append(" €").append("\nVersand: ")
-				.append(calcShipping()).append(" €").append("\nSumme: ").append(calcSumme()).append(" €");
+				.append(calcShipping()).append(" €").append("\nSumme: ").append(calcGesamtSumme()).append(" €");
 		return sb.toString();
 	}
 
