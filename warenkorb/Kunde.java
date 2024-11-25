@@ -16,7 +16,7 @@ public class Kunde {
 	private String vorName;
 	private String nachName;
 	
-	// Counter wird benutzt um kundenNummer bei jedem Aufrufen des Konstruktors um 1
+	// Counter wird benutzt um kundenNummer bei jedem Aufrufen des Konstruktors (neuer Kunde wird erstellt) um 1
 	// zu erhöhen
 	private static int counter = 1;
 
