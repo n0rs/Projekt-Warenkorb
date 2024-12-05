@@ -1,4 +1,4 @@
-package warenkorb;
+package de.rh.warenkorb;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
