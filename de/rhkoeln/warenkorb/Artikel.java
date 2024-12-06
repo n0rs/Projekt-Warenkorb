@@ -1,4 +1,4 @@
-package de.rh.warenkorb;
+package de.rhkoeln.warenkorb;
 
 import java.util.ArrayList;
 import java.util.Collections;
