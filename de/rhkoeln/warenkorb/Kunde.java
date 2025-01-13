@@ -31,10 +31,6 @@ public class Kunde {
 		this.lieferAdresse = lieferAdresse;
 		this.rechnungsAdresse = rechnungsAdresse;
 		this.warenkorb = new Warenkorb();
-
-		// kundenNummer und warenkorb als sich ändernde Objekte
-		// eventuell müssen wir die Lieferadresse auch so behandeln, wenn wir die ändern
-		// wollen
 	}
 	
 	public static Kunde kundenKontoErstellen() {
@@ -66,6 +62,7 @@ public class Kunde {
 		System.out.println(k);
 		System.out.println("\nWelche Daten möchten Sie ändern?\n(a) Rechnungsadresse\n(b) Lieferadresse");
 
+		// try/catch wird benutzt um falsche Eingaben aufzufangen. 
 		try {
 			String auswahl = scanner.nextLine();
 			switch (auswahl) {
@@ -94,11 +91,11 @@ public class Kunde {
 		return k;
 	}
 
+	// Zeigt Warenkorb und einige Optionen zum weiteren Shopping Vorgangs
 	public boolean warenkorbShowAndNavi() {
-
 		System.out.println(getWarenkorb() + lineSep() + "\n(a) Warenkorb leeren" + "   " + "(b) Bestellung abbrechen"
 				+ "   " + "(c) Zur Kasse gehen" + "   (d) Einkauf fortsetzen");
-
+		// fängt ungültige Nutzereingaben auf
 		try {
 			String auswahl = scanner.nextLine();
 			switch (auswahl) {
@@ -127,19 +124,19 @@ public class Kunde {
 		return true;
 	}
 
-	// Aufruf Warenkorb.changeAnzahlW Methode
+	// Ändert Anzahl der Artikel über Artikelnummer zu bestimmter Anzahl, auch wenn Artikel noch nicht im Warenkorb vorhanden ist
 	public void changeAnzahl() {
 		System.out.println("Bitte geben Sie die Artikelnummer und anschließend die gewünschte Anzahl an:");
 
 		try {
 			System.out.println("Artikelnr.: ");
 			int artikelNummer = scanner.nextInt();
-			Artikel artikel = Artikel.waren.get(artikelNummer - 1);
+			Artikel artikel = Artikel.waren.get(artikelNummer - 1); // -1 da index der Artikel Liste bei 0 beginnt
 
 			System.out.print("Neue Anzahl: ");
 			int anzahl = scanner.nextInt();
 
-			warenkorb.changeAnzahlW(artikel, anzahl);
+			warenkorb.changeAnzahlW(artikel, anzahl); // Aufruf Warenkorb.changeAnzahlW Methode
 			scanner.nextLine();
 		} catch (InputMismatchException | IndexOutOfBoundsException e) {
 			System.err.println("Ungültige Eingabe. Bitte versuchen Sie es erneut.\n");
@@ -147,14 +144,14 @@ public class Kunde {
 		}
 	}
 
-	// Aufruf Warenkorb.clearWaren Methode
+	// leert den Warenkorb des Kunden
 	public void clearWarenkorb() {
-		warenkorb.clearWaren();
+		warenkorb.clearWaren(); // Aufruf Warenkorb.clearWaren Methode
 	}
 
-	// Aufruf Warenkorb.calcShipping Methode
+	// Berechnet Shippingkosten für vorhandenen Warenkorb
 	public double prizeShipping() {
-		return warenkorb.calcShipping();
+		return warenkorb.calcShipping(); // Aufruf Warenkorb.calcShipping Methode
 	}
 
 	// um Bestellbestätigung schöner zu printen
@@ -175,6 +172,8 @@ public class Kunde {
 		clearWarenkorb();
 	}
 
+	// @Override ist Übersichtlichkeits und Sicherheitsmechanismus.
+	// Beim Kompillieren wird geschaut ob toString wirklich überschrieben wurde und gibt bei Tipp Fehler eine Warnung
 	@Override
 	public String toString() {
 		return "Name: " + vorName + " " + nachName + "\nLieferadresse: " + lieferAdresse + "\nRechnungsadresse: "

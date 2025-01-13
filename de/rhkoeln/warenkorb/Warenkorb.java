@@ -16,8 +16,7 @@ public class Warenkorb {
 
 	// berechnet den Gesamtpreis der Artikel im Warenkorb
 	public double calcTotal() {
-		// Ich musste hier Math.round benutzen & einmal *100 & /100 rechnen, damit keine
-		// Rundungsfehler rauskommen
+		// Math.round benutzt & einmal *100 & /100 gerechnet, damit keine Rundungsfehler rauskommen
 		double total = 0;
 		for (int i = 0; i < warenkorb.size(); i++) {
 			total += (warenkorb.get(i).getArtikelPreis());
@@ -26,7 +25,7 @@ public class Warenkorb {
 		return Math.round(100.0 * total) / 100.0;
 	}
 
-	// berechnet die Versandkosten, die separat ausgewiesen werden
+	// berechnet die Versandkosten, basierend auf dem Gesamtpreis
 	public double calcShipping() {
 
 		double s1 = 5.95;
@@ -42,6 +41,7 @@ public class Warenkorb {
 		}
 	}
 
+	// berechnet Gesamtkosten
 	public double calcGesamtSumme() {
 
 		double summe = calcTotal() + calcShipping();
@@ -96,7 +96,7 @@ public class Warenkorb {
 		System.out.println("Anzahl \"" + artikel.getArtikelBezeichnung() + "\" auf \"" + Anzahl + "\" geändert.");
 	}
 
-	// entfernt alle Artikel vom Typ x aus der ArrayList
+	// entfernt alle Artikel vom Typ x aus dem Warenkorb
 	public void removeallArtikelx(Artikel artikel) {
 
 		int artikelx = Collections.frequency(warenkorb, artikel);
@@ -113,7 +113,7 @@ public class Warenkorb {
 		warenkorb.clear();
 	}
 
-	// ToString
+	// Überschreiben der toString Methode um Warenkorb lesbar auszugeben
 	@Override
 	public String toString() {
 
@@ -121,15 +121,23 @@ public class Warenkorb {
 			return "Der Warenkorb ist leer.";
 		}
 
-		warenkorb.sort(Comparator.comparing(Artikel::getArtikelNummer));
 		StringBuilder sb = new StringBuilder();
+		warenkorb.sort(Comparator.comparing(Artikel::getArtikelNummer));
+		
 
 		// Zusammengefasste Ausgabe
-		Artikel.waren.stream().filter(artikel -> Collections.frequency(warenkorb, artikel) > 0).forEach(artikel -> sb
-				.append(artikel).append("; Anzahl: ").append(Collections.frequency(warenkorb, artikel)).append("\n"));
+		Artikel.waren.stream()
+					.filter(artikel -> Collections.frequency(warenkorb, artikel) > 0)
+					.forEach(artikel -> sb
+							.append(artikel)
+							.append("; Anzahl: ")
+							.append(Collections.frequency(warenkorb, artikel))
+							.append("\n"));
 
-		sb.append(lineSep()).append("Total: ").append(calcTotal()).append(" €").append("\nVersand: ")
-				.append(calcShipping()).append(" €").append("\nSumme: ").append(calcGesamtSumme()).append(" €");
+		sb.append(lineSep())
+			.append("Total: ").append(calcTotal()).append(" €").append("\nVersand: ")
+			.append(calcShipping()).append(" €").append("\nSumme: ")
+			.append(calcGesamtSumme()).append(" €");
 		return sb.toString();
 	}
 

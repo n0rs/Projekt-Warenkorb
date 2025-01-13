@@ -11,11 +11,16 @@ public class Main {
 
     public static void main(String[] args) {
         try (scanner) {
+            
+            // Wenn running==true läuft das Programm weiter
             boolean running = true;
+
+            // Artikel werden ins Sortiment geladen
             Artikel.initiateWaren();
             
             System.out.println("Willkommen in Ihrem Herr der Ringe Fanshop. Wir wünschen viel Spaß und gutes Shopping!");
             
+            // Wichtigster While Loop Programmablauf wird hier gesteuert
             while (running) {
                 Kunde k = loginVorgang();               
                 einkaufen(k);
@@ -28,6 +33,7 @@ public class Main {
     }
 
     private static Kunde loginVorgang() {
+        // While Loop des Login vorgangs (Kundenerstellung, Login)
         while (true) {
             System.out.println("(a) Neuer Kunde   (b) Login");
             String auswahl = scanner.nextLine().trim().toLowerCase();
@@ -65,9 +71,12 @@ public class Main {
     }
 
     private static void einkaufen(Kunde k) {
+        // Hier passiert der Shopping Vorgang des Nutzers
         System.out.println("\nWillkommen, " + k.getVorName() + "!");
+            // Sortiment wird einmal ausgegeben
             Artikel.printWaren();
 
+            
             while (true) {
                 System.out.println("""
                                    \n Was möchten Sie tun?
@@ -80,7 +89,8 @@ public class Main {
                                    (g) Bestellvorgang abbrechen""");
 
                     String auswahl = scanner.nextLine();
-
+                    
+                    // Einkaufssteuerung
                     switch (auswahl) {
                         case "a" -> k.changeAnzahl();
                         case "b" -> k.changeAnzahl();
