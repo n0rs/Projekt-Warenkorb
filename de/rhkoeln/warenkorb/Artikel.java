@@ -39,8 +39,10 @@ public class Artikel {
 	public static void printWaren() {
 		System.out.println("\nDies ist unser aktuelles Sortiment:");
 		// for-each loop, der "Warensortiment" ausgibt
+		// %-15s oder %-45s sind String formatierungen. Dadurch wird | immmer an der selben Stelle ausgegeben
 		System.out.printf("%-15s | %-45s | %-10s%n", "Artikelnummer", "Name", "Preis");
 		for (Artikel artikel : waren) {
+			// .2f legt fest wie viele Nachkommastellen des Preises mit ausgegeben werden (2)
 			System.out.printf("%-15d | %-45s | €%-10.2f%n", artikel.artikelNummer, artikel.artikelBezeichnung, artikel.artikelPreis);
 		}	
 	}
@@ -48,13 +50,10 @@ public class Artikel {
 	// ToString
 	@Override
 	public String toString() {
-
 		return "Artikelnr. " + artikelNummer + "; Name: " + artikelBezeichnung + "; Preis: " + artikelPreis + " €";
-
 	}
 
 	// Getter und Setter für alle Attribute der Artikel
-	// Am Ende ausmisten
 	public int getArtikelNummer() {
 		return artikelNummer;
 	}
