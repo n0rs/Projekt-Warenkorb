@@ -19,7 +19,7 @@ public class Artikel {
 		this.artikelBezeichnung = artikelBezeichnung;
 	}
 
-	// erstellt 10 Artikel
+	// erstellt 10 Artikel - das Sortiment
 	public static void initiateWaren() {
 		Artikel a1 = new Artikel(1, 19.99, "Der Herr der Ringe - Die Gefährten");
 		Artikel a2 = new Artikel(2, 19.99, "Der Herr der Ringe - Die zwei Türme");
