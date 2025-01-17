@@ -128,10 +128,11 @@ public class Warenkorb {
 		Artikel.waren.stream()
 					.filter(artikel -> Collections.frequency(warenkorb, artikel) > 0)
 					.forEach(artikel -> sb
-							.append(artikel)
-							.append("; Anzahl: ")
-							.append(Collections.frequency(warenkorb, artikel))
-							.append("\n"));
+							.append(String.format("%-15s %-45s %-20s %-10s%n",
+								"Artikelnr. " + artikel.getArtikelNummer() + ";",
+								"Name: " + artikel.getArtikelBezeichnung() + ";",
+								"Preis: " + artikel.getArtikelPreis() + " €;",
+								"Anzahl: " + Collections.frequency(warenkorb, artikel))));
 
 		sb.append(lineSep())
 			.append("Total: ").append(calcTotal()).append(" €").append("\nVersand: ")
