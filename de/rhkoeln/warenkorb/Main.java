@@ -81,20 +81,18 @@ public class Main {
                 System.out.println("""
                                    \n Was möchten Sie tun?
                                    (a) Artikel hinzufügen/entfernen
-                                   (b) Anzahl der Artikel im Warenkorb ändern
-                                   (c) Warenkorb anzeigen
-                                   (d) Sortiment anzeigen
-                                   (e) Meine Daten ändern
-                                   (f) Zur Kasse gehen
-                                   (g) Bestellvorgang abbrechen""");
+                                   (b) Warenkorb anzeigen
+                                   (c) Sortiment anzeigen
+                                   (d) Meine Daten ändern
+                                   (e) Zur Kasse gehen
+                                   (f) Bestellvorgang abbrechen""");
 
                     String auswahl = scanner.nextLine();
                     
                     // Einkaufssteuerung
                     switch (auswahl) {
                         case "a" -> k.changeAnzahl();
-                        case "b" -> k.changeAnzahl();
-                        case "c" -> {
+                        case "b" -> {
                             if (k.getWarenkorb().calcTotal() > 0) {
                                 if (!k.warenkorbShowAndNavi()) {
                                     return;
@@ -103,13 +101,13 @@ public class Main {
                                 System.out.println("Ihr Warenkorb ist leer!");
                             }
                         }
-                        case "d" -> Artikel.printWaren();
-                        case "e" -> Kunde.changeDaten(k);
-                        case "f" -> {
+                        case "c" -> Artikel.printWaren();
+                        case "d" -> Kunde.changeDaten(k);
+                        case "e" -> {
                             k.endBestellung();
                             return;
                         }
-                        case "g" -> {
+                        case "f" -> {
                             System.out.println("Bestellvorgang abgebrochen.");
                             k.clearWarenkorb();
                             return;
