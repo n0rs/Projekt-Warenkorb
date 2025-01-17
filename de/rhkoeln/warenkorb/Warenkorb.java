@@ -78,7 +78,6 @@ public class Warenkorb {
 		// Entfernen des Artikels, wenn die Anzahl auf 0 gesetzt wird
 		if (Anzahl == 0) {
 			removeallArtikelx(artikel);
-			System.out.println("Artikel \"" + artikel.getArtikelBezeichnung() + "\" wurde entfernt.");
 			return;
 		}
 
