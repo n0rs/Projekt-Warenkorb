@@ -135,9 +135,9 @@ public class Warenkorb {
 								"Anzahl: " + Collections.frequency(warenkorb, artikel))));
 
 		sb.append(lineSep())
-			.append("Total: ").append(calcTotal()).append(" €").append("\nVersand: ")
-			.append(calcShipping()).append(" €").append("\nSumme: ")
-			.append(calcGesamtSumme()).append(" €");
+			.append("Total: ").append(calcTotal()).append(" €")
+			.append("\nVersand: ").append(calcShipping()).append(" €")
+			.append("\nSumme: ").append(calcGesamtSumme()).append(" €");
 		return sb.toString();
 	}
 
